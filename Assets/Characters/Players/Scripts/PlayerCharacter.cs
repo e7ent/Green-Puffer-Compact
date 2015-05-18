@@ -59,7 +59,21 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 	public override void Move(Vector3 move, ForceMode2D forceMode = ForceMode2D.Force)
 	{
-		base.Move(move, forceMode);
+		if (isAlive == false)
+			return;
+
+		if (move.magnitude > 1)
+			move.Normalize();
+
+		rigidbody.AddForce(move * force, forceMode);
+
+		// sync face
+		if (Mathf.Abs(move.x) >= moveThreshold)
+		{
+			Vector3 theScale = transform.localScale;
+			theScale.x = Mathf.Abs(theScale.x) * Mathf.Sign(move.x);
+			transform.localScale = theScale;
+		}
 
 		// sync rotation
 		var direction = Mathf.Sign(transform.localScale.x);

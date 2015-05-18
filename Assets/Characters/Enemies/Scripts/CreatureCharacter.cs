@@ -14,8 +14,8 @@ public class CreatureCharacter : MonoBehaviour
 
 
 	[Header("Sync Directioin")]
-	[SerializeField] private float moveThreshold = 0.01f;
-	[SerializeField] private bool facingReverse = false;
+	[SerializeField] protected float moveThreshold = 0.01f;
+	[SerializeField] protected bool facingReverse = false;
 
 
 	protected bool isAlive;

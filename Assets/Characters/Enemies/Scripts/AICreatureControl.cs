@@ -23,6 +23,7 @@ public class AICreatureControl : MonoBehaviour
 
 
 	private CreatureCharacter character;
+	private Rigidbody2D rigidbody;
 	private StateType state;
 	private Transform target;
 	private Vector2 direction;
@@ -33,9 +34,10 @@ public class AICreatureControl : MonoBehaviour
 	private float restElapsed;
 
 
-	private void Start()
+	private void Awake()
 	{
 		character = GetComponent<CreatureCharacter>();
+		rigidbody = GetComponent<Rigidbody2D>();
 		direction.x = Random.Range(0, 2) == 0 ? -1 : 1;
 		direction.y = 1;
 		SetState(StateType.Active);
@@ -180,6 +182,12 @@ public class AICreatureControl : MonoBehaviour
 			target.Hurt(character.Damage);
 		else
 			character.Hurt(target.Damage);
+
+
+		var force = transform.position - coll.transform.position;
+		force.Normalize();
+		force *= rigidbody.mass;
+		rigidbody.AddForce(force, ForceMode2D.Impulse);
 	}
 
 
