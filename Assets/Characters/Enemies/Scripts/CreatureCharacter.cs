@@ -42,7 +42,8 @@ public class CreatureCharacter : MonoBehaviour
 
 	protected virtual void Update()
 	{
-		animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
+		if (animator != null)
+			animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
 
 		Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 		if (Mathf.Abs(pos.x) >= 1.5f || Mathf.Abs(pos.y) >= 1.5f)
@@ -75,7 +76,8 @@ public class CreatureCharacter : MonoBehaviour
 		if (isAlive == false)
 			return;
 
-		animator.SetTrigger("Attack");
+		if (animator != null)
+			animator.SetTrigger("Attack");
 
 		target.Hurt(damage);
 
@@ -91,7 +93,8 @@ public class CreatureCharacter : MonoBehaviour
 		if (damage <= 0)
 			return;
 
-		animator.SetTrigger("Hurt");
+		if (animator != null)
+			animator.SetTrigger("Hurt");
 
 		hp = Mathf.Clamp(hp - damage, 0, hp);
 
@@ -105,7 +108,8 @@ public class CreatureCharacter : MonoBehaviour
 			return;
 
 		// play animation...
-		animator.SetBool("Dead", true);
+		if (animator != null)
+			animator.SetBool("Dead", true);
 		
 		// disable colliders...
 		var colliders = GetComponentsInChildren<Collider2D>();

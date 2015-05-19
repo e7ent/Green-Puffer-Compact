@@ -40,7 +40,8 @@ public class HurtEffect : MonoBehaviour
 			tweens.Add(seq);
 		}
 
-		tweens.Add(transform.DOPunchScale(Vector3.one * 0.2f, 0.4f));
-		tweens.Add(transform.DOShakeRotation(0.4f, 45));
+		transform.DOKill(true);
+		transform.DOPunchScale(Vector3.one * 0.2f, 0.4f);
+		transform.DOShakeRotation(0.2f, 20);
 	}
 }

@@ -192,12 +192,6 @@ public class AICreatureControl : MonoBehaviour
 			target.Hurt(character.Damage);
 		else
 			character.Hurt(target.Damage);
-
-
-		var force = transform.position - coll.transform.position;
-		force.Normalize();
-		force *= rigidbody.mass;
-		rigidbody.AddForce(force, ForceMode2D.Impulse);
 	}
 
 

@@ -48,6 +48,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 	{
 		base.Awake();
 		currentState = StateType.Normal;
+		animator = null;
 	}
 
 

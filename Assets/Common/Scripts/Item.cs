@@ -7,13 +7,30 @@ public class Item : MonoBehaviour
 	public float giveSize;
 	public int giveCoin;
 
-	public void OnTriggerEnter2D(Collider2D other)
+
+	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Player") == false)
 			return;
+		Use(other.GetComponent<PlayerCharacter>());
+	}
+
+
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.CompareTag("Player") == false)
+			return;
+		Use(other.GetComponent<PlayerCharacter>());
+	}
+
+
+	private void Use(PlayerCharacter player)
+	{
+		if (player == null)
+			return;
 
 		// feeding
-		other.GetComponent<PlayerCharacter>().Feed(giveHP, giveSize);
+		player.Feed(giveHP, giveSize);
 
 
 		// create effect
@@ -25,6 +42,7 @@ public class Item : MonoBehaviour
 			Instantiate(GameSettings.Instance.coinHUD, transform.position, Quaternion.identity);
 			GameManager.instance.GiveCoin(giveCoin);
 		}
+
 
 		// destroy self
 		Destroy(gameObject);
