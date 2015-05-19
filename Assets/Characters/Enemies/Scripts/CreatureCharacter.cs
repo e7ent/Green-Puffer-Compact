@@ -21,6 +21,7 @@ public class CreatureCharacter : MonoBehaviour
 	protected bool isAlive;
 	protected new Rigidbody2D rigidbody;
 	protected Animator animator;
+	protected Bounds bounds;
 
 
 	public bool IsAlive { get { return isAlive; } }
@@ -37,6 +38,15 @@ public class CreatureCharacter : MonoBehaviour
 		isAlive = true;
 		rigidbody = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+
+		// get bounds
+		var renderers = GetComponentsInChildren<Renderer>();
+		if (renderers.Length > 0)
+		{
+			bounds = renderers[0].bounds;
+			for (int i = 1; i < renderers.Length; i++)
+				bounds.Encapsulate(renderers[i].bounds);
+		}
 	}
 
 
@@ -45,8 +55,11 @@ public class CreatureCharacter : MonoBehaviour
 		if (animator != null)
 			animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
 
-		Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-		if (Mathf.Abs(pos.x) >= 1.5f || Mathf.Abs(pos.y) >= 1.5f)
+		var position = transform.position;
+		position.x -= Mathf.Sign(position.x) * bounds.size.x * 2;
+		position.y -= Mathf.Sign(position.y) * bounds.size.y * 2;
+		position = Camera.main.WorldToViewportPoint(position);
+		if (position.x <= 0 || position.x >= 1 || position.y <= 0 || position.y >= 1)
 			Destroy(gameObject);
 	}
 

@@ -8,18 +8,13 @@ public class HurtEffect : MonoBehaviour
 	public Color color = Color.red;
 
 
-	private List<Material> materials = new List<Material>();
+	private Renderer[] renderers;
 	private List<Tween> tweens = new List<Tween>();
 
 
 	void Awake()
 	{
-		foreach (var renderer in GetComponentsInChildren<Renderer>())
-		{
-			var mat = renderer.material;
-			if (mat.HasProperty("_Color") == false) continue;
-			materials.Add(mat);
-		}
+		renderers = GetComponentsInChildren<Renderer>();
 	}
 
 
@@ -29,13 +24,16 @@ public class HurtEffect : MonoBehaviour
 			tweens[i].Kill(true);
 
 		tweens.Clear();
-		for (int i = 0; i < materials.Count; i++)
+		for (int i = 0; i < renderers.Length; i++)
 		{
+			var mat = renderers[i].material;
+			if (mat.HasProperty("_Color") == false) continue;
+
 			var seq = DOTween.Sequence();
 			for (int j = 0; j < 3; j++)
 			{
-				seq.Append(materials[i].DOColor(color, 0.1f));
-				seq.Append(materials[i].DOColor(Color.white, 0.1f));
+				seq.Append(renderers[i].material.DOColor(color, 0.1f));
+				seq.Append(renderers[i].material.DOColor(Color.white, 0.1f));
 			}
 			tweens.Add(seq);
 		}
