@@ -197,4 +197,10 @@ public class AICreatureControl : MonoBehaviour
 		if (hp <= 0)
 			character.Kill();
 	}
+
+
+	public void SetMoveDirection(float x)
+	{
+		direction.x = x;
+	}
 }

@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerUserControl : MonoBehaviour
 {
 	private PlayerCharacter character;
 	private Rigidbody2D rigidbody;
+	private List<Tween> tweens = new List<Tween>();
 
 
 	private void Awake()
@@ -32,5 +35,14 @@ public class PlayerUserControl : MonoBehaviour
 		force.Normalize();
 		force *= rigidbody.mass;
 		rigidbody.AddForce(force, ForceMode2D.Impulse);
+	}
+
+
+	void OnFeed()
+	{
+		for (int i = 0; i < tweens.Count; i++)
+			tweens[i].Kill(true);
+
+		tweens.Add(transform.DOPunchScale(Vector3.one * 0.2f, 0.4f));
 	}
 }

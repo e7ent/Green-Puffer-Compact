@@ -12,8 +12,21 @@ public class Item : MonoBehaviour
 		if (other.CompareTag("Player") == false)
 			return;
 
+		// feeding
 		other.GetComponent<PlayerCharacter>().Feed(giveHP, giveSize);
-		GameManager.instance.GiveCoin(giveCoin);
+
+
+		// create effect
+		if (giveHP > 0 || giveSize > 0)
+			Instantiate(GameSettings.Instance.expHUD, transform.position, Quaternion.identity);
+
+		if (giveCoin > 0)
+		{
+			Instantiate(GameSettings.Instance.coinHUD, transform.position, Quaternion.identity);
+			GameManager.instance.GiveCoin(giveCoin);
+		}
+
+		// destroy self
 		Destroy(gameObject);
 	}
 

@@ -31,10 +31,13 @@ public class GameSettings : ScriptableObject
 #endif
 
 
-	public GameObject coinPrefabs;
+	public GameObject coinPrefab;
 	public float maxSize = 3;
 
 
 	[Header("Effect Prefabs")]
 	public GameObject[] explosion;
+	public HUDEffect coinHUD;
+	public HUDEffect hitHUD;
+	public HUDEffect expHUD;
 }

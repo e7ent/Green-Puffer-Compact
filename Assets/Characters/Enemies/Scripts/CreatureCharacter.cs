@@ -43,6 +43,10 @@ public class CreatureCharacter : MonoBehaviour
 	protected virtual void Update()
 	{
 		animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
+
+		Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+		if (Mathf.Abs(pos.x) >= 1.5f || Mathf.Abs(pos.y) >= 1.5f)
+			Destroy(gameObject);
 	}
 
 

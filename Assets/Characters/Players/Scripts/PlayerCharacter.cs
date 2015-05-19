@@ -42,6 +42,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 	[SerializeField] private ActiveSkill activeSkill = null;
 	[SerializeField] private PassiveSkill passiveSkill = null;
 
+	private float additiveScale = 1;
 	private StateType currentState;
 
 	protected override void Awake()
@@ -53,7 +54,14 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 	protected override void Update()
 	{
+		hp = Mathf.Clamp(hp - Time.deltaTime, 0, MaxHP);
+
 		fin.speed = Mathf.Clamp(rigidbody.velocity.sqrMagnitude * 5.0f, 0.5f, 2);
+
+		Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+		pos.x = Mathf.Clamp(pos.x, 0, 1);
+		pos.y = Mathf.Clamp(pos.y, 0, 1);
+		transform.position = Camera.main.ViewportToWorldPoint(pos);
 	}
 
 
@@ -90,8 +98,13 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 	public void Feed(float addHP, float addSize)
 	{
-		hp += Mathf.Clamp(addHP, 0, maxHP);
-		size += Mathf.Clamp(addSize, 0, GameSettings.Instance.maxSize);
+		hp = Mathf.Clamp(hp + addHP, 0, MaxHP);
+		size = Mathf.Clamp(size + addSize, 0, GameSettings.Instance.maxSize);
+		additiveScale += addSize * 0.1f;
+
+		var theScale = Vector3.one * additiveScale;
+		theScale.x *= Mathf.Sign(transform.localScale.x);
+		transform.localScale = theScale;
 
 		SendMessage("OnFeed", SendMessageOptions.DontRequireReceiver);
 	}
