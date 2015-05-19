@@ -36,11 +36,21 @@ public class AICreatureControl : MonoBehaviour
 
 	private void Awake()
 	{
+		// get components
 		character = GetComponent<CreatureCharacter>();
 		rigidbody = GetComponent<Rigidbody2D>();
-		direction.x = Random.Range(0, 2) == 0 ? -1 : 1;
-		direction.y = 1;
+
+		// set state
 		SetState(StateType.Active);
+	}
+
+
+	private void Start()
+	{
+		// set direction
+		var viewportPoint = Camera.main.WorldToViewportPoint(transform.position);
+		direction.x = Mathf.Sign(viewportPoint.x) * -1;
+		direction.y = 1;
 	}
 
 
@@ -196,11 +206,5 @@ public class AICreatureControl : MonoBehaviour
 		yield return null;
 		if (hp <= 0)
 			character.Kill();
-	}
-
-
-	public void SetMoveDirection(float x)
-	{
-		direction.x = x;
 	}
 }

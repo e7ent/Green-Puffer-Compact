@@ -42,7 +42,6 @@ public sealed class PlayerCharacter : CreatureCharacter
 	[SerializeField] private ActiveSkill activeSkill = null;
 	[SerializeField] private PassiveSkill passiveSkill = null;
 
-	private float additiveScale = 1;
 	private StateType currentState;
 
 	protected override void Awake()
@@ -100,11 +99,10 @@ public sealed class PlayerCharacter : CreatureCharacter
 	{
 		hp = Mathf.Clamp(hp + addHP, 0, MaxHP);
 		size = Mathf.Clamp(size + addSize, 0, GameSettings.Instance.maxSize);
-		additiveScale += addSize * 0.1f;
 
-		var theScale = Vector3.one * additiveScale;
+		var theScale = Vector3.one * addSize;
 		theScale.x *= Mathf.Sign(transform.localScale.x);
-		transform.localScale = theScale;
+		transform.localScale += theScale;
 
 		SendMessage("OnFeed", SendMessageOptions.DontRequireReceiver);
 	}
