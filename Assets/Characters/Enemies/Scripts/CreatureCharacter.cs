@@ -25,7 +25,17 @@ public class CreatureCharacter : MonoBehaviour
 
 
 	public bool IsAlive { get { return isAlive; } }
-	public float HP { get { return hp; } }
+	public float HP
+	{
+		get { return hp; }
+		protected set
+		{
+			hp = Mathf.Clamp(value, 0, MaxHP);
+
+			if (hp <= 0)
+				Kill();
+		}
+	}
 	public float MaxHP { get { return maxHP; } }
 	public float Damage { get { return damage; } }
 	public float Defense { get { return defense; } }
@@ -109,7 +119,7 @@ public class CreatureCharacter : MonoBehaviour
 		if (animator != null)
 			animator.SetTrigger("Hurt");
 
-		hp = Mathf.Clamp(hp - damage, 0, hp);
+		HP -= damage;
 
 		SendMessage("OnHurt", hp, SendMessageOptions.DontRequireReceiver);
 	}

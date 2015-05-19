@@ -54,7 +54,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 	protected override void Update()
 	{
-		hp = Mathf.Clamp(hp - Time.deltaTime, 0, MaxHP);
+		HP -= Time.deltaTime;
 
 		fin.speed = Mathf.Clamp(rigidbody.velocity.sqrMagnitude * 5.0f, 0.5f, 2);
 
@@ -95,7 +95,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 	}
 
 
-	public void Hurt(float damage)
+	public override void Hurt(float damage)
 	{
 		base.Hurt(damage - defense);
 	}
@@ -103,7 +103,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 	public void Feed(float addHP, float addSize)
 	{
-		hp = Mathf.Clamp(hp + addHP, 0, MaxHP);
+		HP += addHP;
 		size = Mathf.Clamp(size + addSize, 0, GameSettings.Instance.maxSize);
 
 		var theScale = Vector3.one * addSize;
