@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Collections;
 
-public class SortingLayerChanger : EditorWindow 
+public class SortingLayerChanger : EditorWindow
 {
 	private string layer;
 
@@ -15,11 +15,14 @@ public class SortingLayerChanger : EditorWindow
 	private void OnGUI()
 	{
 		layer = EditorGUILayout.TextField("Layer", layer);
+		
 		if (GUILayout.Button("Change"))
 		{
-			foreach (var item in Selection.gameObjects)
+			var objects = Selection.activeGameObject;
+			var renderers = objects.GetComponentsInChildren<Renderer>();
+			for (int i = 0; i < renderers.Length; i++)
 			{
-				Debug.Log(item);
+				renderers[i].sortingLayerName = layer;
 			}
 		}
 	}
