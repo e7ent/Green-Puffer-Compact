@@ -21,10 +21,11 @@ namespace E7Assets.CrossPlatformInput
 			if (joystick.gameObject.activeSelf)
 				return;
 
-			print(EventSystem.current.currentSelectedGameObject);
 
 			if (Input.GetMouseButtonDown(0))
 			{
+				if (EventSystem.current.IsPointerOverGameObject())
+					return;
 				joystick.Show(Input.mousePosition);
 				return;
 			}

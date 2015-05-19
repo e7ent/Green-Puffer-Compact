@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 8b6f30126fff15940ada61b8101eb02b
+timeCreated: 1432047788
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Common UI Atlas Panel 2
+    21300002: Common UI Atlas Simple Panel
+    21300004: Common UI Atlas Close
+    21300006: Common UI Atlas_3
+    21300008: Common UI Atlas Settings
+    21300010: Common UI Atlas X
+    21300012: Common UI Coin
+    21300014: Common UI Atlas New
+    21300016: Common UI Atlas_8
+    21300018: Common UI Atlas Panel
+    21300020: Common UI Atlas_10
+    21300022: Common UI Atlas_11
+    21300024: Common UI Atlas_12
+    21300026: Common UI Atlas_13
+    21300028: Common UI Atlas Medal
+    21300030: Common UI Atlas_15
+    21300032: Common UI Atlas_16
+    21300034: Common UI Atlas_17
+    21300036: Common UI Atlas OK
+    21300038: Common UI Atlas Yes
+    21300040: Common UI Atlas No
+    21300042: Common UI Atlas Share
+    21300044: Common UI Atlas Medal PlaceHolder
+    21300046: Common UI Atlas Panel 3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Common UI Atlas Panel 2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 360
+        width: 156
+        height: 152
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Simple Panel
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 459
+        width: 52
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 22, y: 22, z: 22, w: 22}
+    - name: Common UI Atlas Close
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 432
+        width: 76
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 444
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Settings
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 441
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas X
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 360
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Coin
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 356
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas New
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 399
+        width: 80
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 308
+        width: 120
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Panel
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 256
+        width: 72
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 33, y: 50, z: 33, w: 37}
+    - name: Common UI Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 344
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 348
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_12
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 256
+        width: 36
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_13
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 274
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Medal
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 280
+        width: 45
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_15
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 301
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 256
+        width: 120
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_17
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 280
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas OK
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 92
+        width: 171
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Yes
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 172
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas No
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 172
+        height: 80
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Share
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 180
+        width: 96
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Medal PlaceHolder
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 202
+        width: 45
+        height: 65
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Panel 3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 408
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 24, y: 23, z: 24, w: 24}
+  spritePackingTag: Game
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
