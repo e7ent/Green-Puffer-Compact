@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8b6f30126fff15940ada61b8101eb02b
-timeCreated: 1432047788
+timeCreated: 1432110437
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -28,6 +28,8 @@ TextureImporter:
     21300042: Common UI Atlas Share
     21300044: Common UI Atlas Medal PlaceHolder
     21300046: Common UI Atlas Panel 3
+    21300048: Common UI Atlas Main Pressed
+    21300050: Common UI Atlas Main Normal
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -313,6 +315,26 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 24, y: 23, z: 24, w: 24}
+    - name: Common UI Atlas Main Pressed
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 282
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas Main Normal
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 282
+        height: 144
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: Game
   userData: 
   assetBundleName: 

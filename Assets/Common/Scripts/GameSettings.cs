@@ -30,7 +30,11 @@ public class GameSettings : ScriptableObject
 	}
 #endif
 
+	[Header("Character")]
+	public GameObject[] character;
 
+
+	[Header("Common")]
 	public GameObject coinPrefab;
 	public float maxSize = 3;
 

@@ -1,15 +1,16 @@
 fileFormatVersion: 2
 guid: db553fed59c01764796c955f35b96b8e
-timeCreated: 1432045776
+timeCreated: 1432101991
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Game Result UI Atlas Main
     21300002: Game Result UI Atlas BestScore
     21300004: Game Result UI Atlas Score
-    21300006: Game Result UI Atlas Main2
+    21300006: Game Result UI Atlas Main Normal
     21300008: Game Result UI Atlas GameOver
     21300010: Game Result UI Atlas Mission
+    21300012: Game Result UI Atlas Main Pressed
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,13 +56,13 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Game Result UI Atlas Main
+    - name: Game Result UI Atlas Main Pressed
       rect:
         serializedVersion: 2
         x: 0
-        y: 380
+        y: 368
         width: 282
-        height: 132
+        height: 144
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -85,7 +86,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Game Result UI Atlas Main2
+    - name: Game Result UI Atlas Main Normal
       rect:
         serializedVersion: 2
         x: 0

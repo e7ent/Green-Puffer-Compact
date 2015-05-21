@@ -8,7 +8,7 @@ public class ItemDropTrigger : MonoBehaviour
 
 	IEnumerator OnKill()
 	{
-		yield return new WaitForSeconds(0.9f);
+		yield return new WaitForSeconds(0.1f);
 		var prefabs = GameSettings.Instance.explosion;
 		Instantiate(prefabs[Random.Range(0, prefabs.Length)], transform.position, Quaternion.identity);
 

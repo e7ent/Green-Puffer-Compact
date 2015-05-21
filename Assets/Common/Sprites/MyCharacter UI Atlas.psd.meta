@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: af0ed7d1a747bf34d82c021a89e84474
+timeCreated: 1432110259
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MyCharacter UI Atlas Title
+    21300002: MyCharacter UI Atlas Rank S
+    21300004: MyCharacter UI Atlas Rank A
+    21300006: MyCharacter UI Atlas Rank B
+    21300008: MyCharacter UI Atlas Rank C
+    21300010: MyCharacter UI Atlas Layout
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 512
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MyCharacter UI Atlas Title
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 434
+        width: 300
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank S
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 404
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank A
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 294
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank B
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 184
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank C
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 74
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Layout
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 296
+        height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: Game
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

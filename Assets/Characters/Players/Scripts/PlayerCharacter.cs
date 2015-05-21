@@ -72,9 +72,6 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 		float magnitude = move.magnitude;
 
-		if (magnitude <= 0)
-			return;
-
 		if (magnitude > 1.0f)
 			move.Normalize();
 

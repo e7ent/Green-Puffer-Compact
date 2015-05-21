@@ -65,12 +65,13 @@ public class CreatureCharacter : MonoBehaviour
 		if (animator != null)
 			animator.SetFloat("Speed", rigidbody.velocity.sqrMagnitude);
 
-		var position = transform.position;
-		position.x -= Mathf.Sign(position.x) * bounds.size.x * 2;
-		position.y -= Mathf.Sign(position.y) * bounds.size.y * 2;
-		position = Camera.main.WorldToViewportPoint(position);
-		if (position.x <= 0 || position.x >= 1 || position.y <= 0 || position.y >= 1)
-			Destroy(gameObject);
+		//var position = transform.position;
+		//// draw gizmos 그려보자
+		////position.x -= Mathf.Sign(position.x) * bounds.size.x * 2;
+		////position.y -= Mathf.Sign(position.y) * bounds.size.y * 2;
+		//position = Camera.main.WorldToViewportPoint(position);
+		//if (position.x <= 0 || position.x >= 1 || position.y <= 0 || position.y >= 1)
+		//	Destroy(gameObject);
 	}
 
 
@@ -143,7 +144,7 @@ public class CreatureCharacter : MonoBehaviour
 		isAlive = false;
 
 		SendMessage("OnKill", SendMessageOptions.DontRequireReceiver);
-		Destroy(gameObject, 1);
+		Destroy(gameObject, 0.3f);
 	}
 
 

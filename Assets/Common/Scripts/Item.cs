@@ -40,7 +40,7 @@ public class Item : MonoBehaviour
 		if (giveCoin > 0)
 		{
 			Instantiate(GameSettings.Instance.coinHUD, transform.position, Quaternion.identity);
-			GameManager.instance.GiveCoin(giveCoin);
+			GameManager.Instance.GiveCoin(giveCoin);
 		}
 
 
