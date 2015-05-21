@@ -30,12 +30,17 @@ public class GameSettings : ScriptableObject
 	}
 #endif
 
+
+	[Header("Parse")]
+	public string appID;
+	public string dotnetID;
+
+
 	[Header("Character")]
 	public GameObject[] character;
 
 
 	[Header("Common")]
-	public GameObject coinPrefab;
 	public float maxSize = 3;
 
 

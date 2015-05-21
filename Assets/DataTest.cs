@@ -9,12 +9,26 @@ public class DataTest : MonoBehaviour {
 
 	public void OnGUI()
 	{
-		if (GUILayout.Button("Try Login", GUILayout.Width(161), GUILayout.Height(100)))
+		if (GUILayout.Button("Test PlayLog"))
 		{
-			GameDataManager.Instance.LoginAsync();
+			Test_RecordPlayLog();
 		}
 
-		if (GameDataManager.Instance.User != null)
-			GUILayout.Label(GameDataManager.Instance.User.Username);
+		if (GUILayout.Button("Test CoinLog"))
+		{
+			Test_RecordCoinLog();
+		}
+	}
+
+
+	void Test_RecordPlayLog()
+	{
+		GameDataManager.Instance.RecordPlayLog(Time.realtimeSinceStartup, Time.realtimeSinceStartup + 100, 100);
+	}
+
+
+	void Test_RecordCoinLog()
+	{
+		GameDataManager.Instance.RecordCoinLog(100, 200);
 	}
 }

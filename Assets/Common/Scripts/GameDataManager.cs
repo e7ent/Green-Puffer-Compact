@@ -31,11 +31,15 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		base.Awake();
 		DontDestroyOnLoad(gameObject);
 
+		ParseClient.Initialize(GameSettings.Instance.appID, GameSettings.Instance.dotnetID);
 		//PlayGamesPlatform.DebugLogEnabled = true;
-#if !UNITY_EDITOR
+#if UNITY_ANDROID
 		PlayGamesPlatform.Activate();
 #endif
 	}
+
+
+	private int cachedCoin;
 
 
 	public ParseUser User
@@ -43,6 +47,19 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		get
 		{
 			return ParseUser.CurrentUser;
+		}
+	}
+
+
+	public int Coin
+	{
+		get { return cachedCoin; }
+
+		set
+		{
+			RecordCoinLog(cachedCoin, value);
+			User["coin"] = cachedCoin = value;
+			User.SignUpAsync();
 		}
 	}
 
@@ -72,7 +89,9 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 				Username = Social.localUser.id,
 				Password = Social.localUser.id,
 			};
-			print(Social.localUser.id);
+#if UNITY_EDITOR
+			user.Password = user.Username = "Test";
+#endif
 			return user.SignUpAsync();
 		}).Unwrap();
 
@@ -80,5 +99,31 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	}
 
 
-	public void Logout() { }
+	public void Logout()
+	{
+		ParseUser.LogOut();
+	}
+
+
+	public void RecordPlayLog(float startTime, float endTime, int rewardCoin)
+	{
+		var logObject = new ParseObject("PlayLog");
+		logObject["startTime"] = startTime;
+		logObject["endTime"] = endTime;
+		logObject["playTime"] = endTime - startTime;
+		logObject["rewardCoin"] = rewardCoin;
+		logObject["createdBy"] = User;
+		logObject.SaveAsync();
+	}
+
+
+	public void RecordCoinLog(int prevCoin, int newCoin)
+	{
+		var logObject = new ParseObject("CoinLog");
+		logObject["prevCoin"] = prevCoin;
+		logObject["newCoin"] = newCoin;
+		logObject["interval"] = newCoin - prevCoin;
+		logObject["createdBy"] = User;
+		logObject.SaveAsync();
+	}
 }

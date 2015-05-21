@@ -30,6 +30,12 @@ public sealed class PlayerCharacter : CreatureCharacter
 		Fun = 19,
 	}
 
+
+	[Header("ID")]
+	[GUID]
+	public string id;
+
+
 	[Header("Animator")]
 	[SerializeField] private Animator eye;
 	[SerializeField] private Animator nose;
