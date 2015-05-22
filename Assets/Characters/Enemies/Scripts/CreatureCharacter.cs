@@ -83,7 +83,7 @@ public class CreatureCharacter : MonoBehaviour
 		if (move.magnitude > 1)
 			move.Normalize();
 
-		rigidbody.AddForce(move * force, forceMode);
+		rigidbody.AddForce(move * force * Time.deltaTime, forceMode);
 
 		// sync face
 		if (Mathf.Abs(rigidbody.velocity.x) >= moveThreshold)

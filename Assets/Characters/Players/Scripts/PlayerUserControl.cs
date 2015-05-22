@@ -37,6 +37,7 @@ public class PlayerUserControl : MonoBehaviour
 	{
 		yield return null;
 		Time.timeScale = 0;
+		GameManager.Instance.Flush();
 		PlayMakerFSM.BroadcastEvent("OnGameFinish");
 	}
 }

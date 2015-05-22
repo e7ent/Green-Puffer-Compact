@@ -81,7 +81,7 @@ public sealed class PlayerCharacter : CreatureCharacter
 		if (magnitude > 1.0f)
 			move.Normalize();
 
-		rigidbody.AddForce(move * force, forceMode);
+		rigidbody.AddForce(move * force * Time.deltaTime, forceMode);
 
 		// sync face
 		if (Mathf.Abs(move.x) >= moveThreshold)

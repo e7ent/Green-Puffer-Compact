@@ -3,10 +3,42 @@ using DG.Tweening;
 
 public class PopupEffect : MonoBehaviour
 {
+	private const float DURATION = 0.2f;
 
-	public void OnEnable()
+
+	private Canvas canvas;
+	private Tween tween;
+
+
+	private void Awake()
 	{
-		transform.localScale = Vector3.zero;
-		transform.DOScale(1, 0.3f).SetEase(Ease.OutExpo).SetUpdate(true);
+		canvas = GetComponentInParent<Canvas>();
+	}
+
+
+	public void Show()
+	{
+		// fade
+		FadeManager.Instance.SortingOrder = canvas.sortingOrder - 1;
+		FadeManager.Instance.FadeTo(new Color(0, 0, 0, 0.5f), DURATION);
+
+
+		// tween
+		if (tween != null)
+			tween.Kill();
+		tween = transform.DOScale(1, DURATION).SetEase(Ease.OutBack).SetUpdate(true);
+	}
+
+
+	public void Hide()
+	{
+		// fade
+		FadeManager.FadeIn(DURATION);
+
+
+		// tween
+		if (tween != null)
+			tween.Kill();
+		tween = transform.DOScale(0, DURATION).SetEase(Ease.InBack).SetUpdate(true);
 	}
 }

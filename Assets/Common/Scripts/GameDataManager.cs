@@ -26,26 +26,16 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	}
 
 
-	protected override void Awake()
-	{
-		base.Awake();
-		DontDestroyOnLoad(gameObject);
-
-		ParseClient.Initialize(GameSettings.Instance.appID, GameSettings.Instance.dotnetID);
-		//PlayGamesPlatform.DebugLogEnabled = true;
-#if UNITY_ANDROID
-		PlayGamesPlatform.Activate();
-#endif
-	}
-
-
 	private int cachedCoin;
+	private int cachedBestScore;
 
 
 	public ParseUser User
 	{
 		get
 		{
+			if (ParseUser.CurrentUser == null)
+				Debug.Log("User가 없습니다.");
 			return ParseUser.CurrentUser;
 		}
 	}
@@ -59,8 +49,35 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		{
 			RecordCoinLog(cachedCoin, value);
 			User["coin"] = cachedCoin = value;
-			User.SignUpAsync();
+			User.SaveAsync();
 		}
+	}
+
+
+	public int BestScore
+	{
+		get { return cachedBestScore; }
+
+		set
+		{
+			if (value <= cachedBestScore)
+				return;
+
+			User["bestScore"] = cachedBestScore = value;
+			User.SaveAsync();
+		}
+	}
+
+
+	protected override void Awake()
+	{
+		base.Awake();
+		DontDestroyOnLoad(gameObject);
+
+		//PlayGamesPlatform.DebugLogEnabled = true;
+#if UNITY_ANDROID
+		PlayGamesPlatform.Activate();
+#endif
 	}
 
 
@@ -74,27 +91,63 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 			if (success)
 				tcs.TrySetResult(Social.localUser.userName);
 			else
-				tcs.TrySetCanceled();
+			{
+#if UNITY_EDITOR
+				tcs.TrySetResult("EditorTest");
+#else
+				tcs.TrySetException(new Exception("Social 로그인 실패."));
+#endif
+			}
 		});
 
 		var task = tcs.Task.ContinueWith(t =>
 		{
-			return ParseUser.Query.WhereEqualTo("username", t.Result).CountAsync();
-		}).Unwrap().ContinueWith(t =>
-		{
-			if (t.Result > 0)
-				return ParseUser.LogInAsync(Social.localUser.id, Social.localUser.id);
-			ParseUser user = new ParseUser()
+			// if social login is failed will return prev task.
+			if (t.IsFaulted)
+				return t;
+
+
+			// check username already exist
+			return ParseUser.Query.WhereEqualTo("username", t.Result).CountAsync().ContinueWith(t2 =>
 			{
-				Username = Social.localUser.id,
-				Password = Social.localUser.id,
-			};
-#if UNITY_EDITOR
-			user.Password = user.Username = "Test";
-#endif
-			return user.SignUpAsync();
+
+				// if exist
+				if (t2.Result > 0)
+				{
+					// try login
+					Debug.LogFormat("Try Login username:{0}", t.Result);
+					return ParseUser.LogInAsync(t.Result, t.Result);
+				}
+
+				// not exist then signup
+				ParseUser user = new ParseUser()
+				{
+					Username = t.Result,
+					Password = t.Result,
+				};
+
+				// try signup
+				Debug.LogFormat("Try Signup username:{0}", user.Username);
+				return user.SignUpAsync();
+
+			}).Unwrap();
+
+
 		}).Unwrap();
 
+		// init some data
+		task.ContinueWith(t =>
+		{
+			if (!t.IsCompleted || t.IsFaulted)
+			{
+				Debug.LogError("Login Faild");
+				return;
+			}
+			Debug.LogFormat("Login Success {0}", User.Username);
+			cachedCoin = User.Get<int>("coin");
+			cachedBestScore = User.Get<int>("bestScore");
+		});
+		
 		return task;
 	}
 

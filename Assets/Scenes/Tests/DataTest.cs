@@ -9,6 +9,11 @@ public class DataTest : MonoBehaviour {
 
 	public void OnGUI()
 	{
+		if (GUILayout.Button("Login"))
+		{
+			GameDataManager.Instance.LoginAsync();
+		}
+
 		if (GUILayout.Button("Test PlayLog"))
 		{
 			Test_RecordPlayLog();
@@ -17,6 +22,21 @@ public class DataTest : MonoBehaviour {
 		if (GUILayout.Button("Test CoinLog"))
 		{
 			Test_RecordCoinLog();
+		}
+
+		if (GUILayout.Button("Set Best Score"))
+		{
+			var user = GameDataManager.Instance.User;
+			user["bestScore"] = 100;
+			user.SaveAsync();
+		}
+
+		if (GUILayout.Button("Get User Count"))
+		{
+			ParseUser.Query.CountAsync().ContinueWith(t =>
+			{
+				print(t.Result);
+			});
 		}
 	}
 
