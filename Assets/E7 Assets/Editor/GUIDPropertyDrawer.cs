@@ -1,21 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEditor;
 
 
-[CustomPropertyDrawer(typeof(GUIDAttribute))]
+[CustomPropertyDrawer(typeof(GUID))]
 public class GUIDPropertyDrawer : PropertyDrawer
 {
-	public override void OnGUI(UnityEngine.Rect position, SerializedProperty property, UnityEngine.GUIContent label)
+	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 	{
 		EditorGUI.BeginProperty(position, label, property);
+		var guidProperry = property.FindPropertyRelative("guid");
+		
 		position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
-		int indent = EditorGUI.indentLevel;
-		EditorGUI.indentLevel = 0;
-		// 그냥 커스텀 클래스로 만들어야함
-		//EditorGUI.TextField(position, property.FindPropertyRelative)
-		GUI.Button(position, "GUID");
+		
+		EditorGUI.PropertyField(
+		   new Rect(position.x, position.y, position.width - 50, position.height),
+		   guidProperry, GUIContent.none);
 
-		EditorGUI.indentLevel = indent;
+		if (GUI.Button(new Rect(position.x + position.width - 46, position.y, 46, position.height), "GUID"))
+		{
+			guidProperry.stringValue = Guid.NewGuid().ToString();
+		}
+
 		EditorGUI.EndProperty();
 	}
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: af0ed7d1a747bf34d82c021a89e84474
-timeCreated: 1432110259
+timeCreated: 1432397283
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,10 @@ TextureImporter:
     21300006: MyCharacter UI Atlas Rank B
     21300008: MyCharacter UI Atlas Rank C
     21300010: MyCharacter UI Atlas Layout
+    21300012: MyCharacter UI Atlas Rank Small S
+    21300014: MyCharacter UI Atlas Rank Small C
+    21300016: MyCharacter UI Atlas Rank Small B
+    21300018: MyCharacter UI Atlas Rank Small A
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -112,6 +116,46 @@ TextureImporter:
         y: 0
         width: 296
         height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank Small S
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 458
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank Small C
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 286
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank Small B
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 343
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MyCharacter UI Atlas Rank Small A
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 401
+        width: 54
+        height: 54
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

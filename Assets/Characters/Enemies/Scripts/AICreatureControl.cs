@@ -159,13 +159,20 @@ public class AICreatureControl : MonoBehaviour
 		this.target = target;
 
 		var player = target.GetComponent<PlayerCharacter>();
+		var sizeSubtract = character.Size - player.Size;
 
-		if (character.Size - player.Size > 0)
+		if (sizeSubtract > 0)
+		{
+			SendMessage("OnFollow", target, SendMessageOptions.DontRequireReceiver);
 			SetState(StateType.Follow);
+		}
 		else
+		{
+			SendMessage("OnEscape", target, SendMessageOptions.DontRequireReceiver);
 			SetState(StateType.Escape);
+		}
 
-		direction.x = (transform.position - target.position).normalized.x;
+		direction.x = (transform.position - target.position).normalized.x * Mathf.Sign(character.Size - player.Size) * -1;
 	}
 
 
@@ -184,6 +191,13 @@ public class AICreatureControl : MonoBehaviour
 
 	public void OnCollisionEnter2D(Collision2D coll)
 	{
+		if (coll.gameObject.CompareTag("Creature"))
+		{
+			var other = coll.gameObject.GetComponent<AICreatureControl>();
+			direction.x = other.direction.x = Random.Range(0, 2) == 0 ? -1 : 1;
+			state = other.state = StateType.Active;
+		}
+
 		if (coll.gameObject.CompareTag("Player") == false)
 			return;
 

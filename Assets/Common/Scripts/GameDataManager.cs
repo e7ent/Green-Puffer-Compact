@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -28,6 +30,7 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 	private int cachedCoin;
 	private int cachedBestScore;
+	private List<string> cachedOwnedCharacters = new List<string>();
 
 
 	public ParseUser User
@@ -69,6 +72,60 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	}
 
 
+	public IEnumerable<PlayerCharacter> OwnedCharacters
+	{
+		get
+		{
+			// if no character
+			// return default character
+			if (User.ContainsKey("characters") == false)
+				return new PlayerCharacter[] { GameSettings.Instance.defaultCharacters };
+
+
+			// get all owned character guids
+			var guids = from obj in User.Get<IEnumerable<object>>("characters")
+						select obj as string;
+
+
+			// make PlayerCharacter List
+			var characters = from character in GameSettings.Instance.characters
+							 where guids.Contains(character.ID.guid)
+							 select character;
+
+			return characters;
+		}
+	}
+
+
+	public PlayerCharacter SelectedCharacter
+	{
+		get
+		{
+			// return default character
+			if (User.ContainsKey("characters") == false)
+				return GameSettings.Instance.defaultCharacters;
+
+			// get saved character guid
+			var selectedGuid = PlayerPrefs.GetString("SelectedCharacter", GameSettings.Instance.defaultCharacters.ID.guid);
+
+			// compare owned character
+			var characters = from character in OwnedCharacters
+							where character.ID.guid == selectedGuid
+							select character;
+			if (characters.Count() <= 0)
+				return GameSettings.Instance.defaultCharacters;
+
+			return characters.First();
+
+		}
+
+		set
+		{
+			PlayerPrefs.SetString("SelectedCharacter", value.ID.guid);
+		}
+	}
+
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -93,7 +150,7 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 			else
 			{
 #if UNITY_EDITOR
-				tcs.TrySetResult("EditorTest");
+				tcs.TrySetResult(GameSettings.Instance.TestID);
 #else
 				tcs.TrySetException(new Exception("Social 로그인 실패."));
 #endif

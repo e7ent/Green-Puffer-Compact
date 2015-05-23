@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Linq;
 using System.Collections;
-using Parse;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Parse;
+using UnityEngine;
 
 public class DataTest : MonoBehaviour {
 
@@ -37,6 +39,28 @@ public class DataTest : MonoBehaviour {
 			{
 				print(t.Result);
 			});
+		}
+
+		if (GUILayout.Button("Test Array"))
+		{
+			//var guids = from character in GameSettings.Instance.characters select character.ID.guid;
+			//GameDataManager.Instance.User.AddRangeToList<string>("characters", guids);
+			//GameDataManager.Instance.User.SaveAsync();
+
+			var list = GameDataManager.Instance.User.Get<IEnumerable<object>>("characters");
+			foreach (string item in list)
+			{
+				print(item);
+			}
+		}
+
+
+		if (GUILayout.Button("Create All Owned Characters"))
+		{
+			foreach (var item in GameDataManager.Instance.OwnedCharacters)
+			{
+				Instantiate<PlayerCharacter>(item);
+			}
 		}
 	}
 

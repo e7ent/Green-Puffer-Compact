@@ -31,9 +31,16 @@ public sealed class PlayerCharacter : CreatureCharacter
 	}
 
 
-	[Header("ID")]
-	[GUID]
-	public string id;
+	[Header("Infomation")]
+	[SerializeField] private GUID id;
+	[SerializeField] private string name;
+	[SerializeField] private int rank;
+	[SerializeField] private Sprite thumbnail;
+
+	public GUID ID { get { return id; } }
+	public string Name { get { return name; } }
+	public int Rank { get { return rank; } }
+	public Sprite Thumbnail { get { return thumbnail; } }
 
 
 	[Header("Animator")]

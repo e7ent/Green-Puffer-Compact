@@ -34,14 +34,17 @@ public class GameSettings : ScriptableObject
 	[Header("Parse")]
 	public string appID;
 	public string dotnetID;
+	public string TestID;
 
 
 	[Header("Character")]
-	public GameObject[] character;
+	public PlayerCharacter[] characters;
+	public PlayerCharacter defaultCharacters;
 
 
 	[Header("Common")]
 	public float maxSize = 3;
+	public Sprite[] rankSprites;
 
 
 	[Header("Effect Prefabs")]
@@ -49,4 +52,9 @@ public class GameSettings : ScriptableObject
 	public HUDEffect coinHUD;
 	public HUDEffect hitHUD;
 	public HUDEffect expHUD;
+	public GameObject createEffect;
+
+
+	[Header("Prefabs")]
+	public GameObject warningPrefab;
 }

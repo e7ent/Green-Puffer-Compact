@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections;
 using HutongGames.PlayMaker;
 
@@ -41,7 +42,7 @@ public class GameManager : MonoSingleton<GameManager>
 	private void Start()
 	{
 		FadeManager.FadeIn();
-		startTime = Time.time;
+		StartGame();
 	}
 
 
@@ -52,6 +53,8 @@ public class GameManager : MonoSingleton<GameManager>
 
 		if (player == null)
 			player = FindObjectOfType<PlayerCharacter>();
+		if (player == null)
+			return;
 
 		endTime = Time.time;
 
@@ -64,6 +67,38 @@ public class GameManager : MonoSingleton<GameManager>
 		hpPercentageFsm.Value = player.HP / player.MaxHP;
 		coinFsm.Value = Coin;
 		scoreFsm.Value = Score;
+	}
+
+
+	public void StartGame()
+	{
+		startTime = Time.time;
+		CreatePlayer(GameDataManager.instance.SelectedCharacter);
+	}
+
+
+	public void CreatePlayer(string guid)
+	{
+		var characters = GameSettings.Instance.characters;
+		var prefab = from character in characters where character.ID.guid == guid select character;
+		CreatePlayer(prefab.First());
+	}
+
+
+	public void CreatePlayer(PlayerCharacter prefab)
+	{
+		var position = Vector3.zero;
+		var rotation = Quaternion.identity;
+
+		if (player != null)
+		{
+			position = player.transform.position;
+			rotation = player.transform.rotation;
+			Destroy(player.gameObject);
+		}
+
+		Instantiate(GameSettings.Instance.createEffect, position, Quaternion.identity);
+		player = Instantiate(prefab, position, rotation) as PlayerCharacter;
 	}
 
 

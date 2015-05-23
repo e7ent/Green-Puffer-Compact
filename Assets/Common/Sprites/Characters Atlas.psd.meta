@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 026989198be7b7b4bba9b2312a99f832
+timeCreated: 1432401643
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Characters Atlas_0
+    21300002: Characters Atlas_1
+    21300004: Characters Atlas_2
+    21300006: Characters Atlas_3
+    21300008: Characters Atlas_4
+    21300010: Characters Atlas_5
+    21300012: Characters Atlas_6
+    21300014: Characters Atlas_7
+    21300016: Characters Atlas_8
+    21300018: Characters Atlas_9
+    21300020: Characters Atlas_10
+    21300022: Characters Atlas_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Characters Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 202
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 483
+        width: 216
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 489
+        width: 244
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 324
+        width: 244
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 336
+        width: 244
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_5
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 326
+        width: 246
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 244
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_7
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 168
+        width: 244
+        height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 178
+        width: 244
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 244
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 244
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Characters Atlas_11
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 0
+        width: 250
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

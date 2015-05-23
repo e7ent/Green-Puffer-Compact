@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 141d9e7c9114c294b8b8cf738fe42040
+timeCreated: 1432383135
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: anchovy_fin_1
@@ -73,6 +75,7 @@ TextureImporter:
     21300136: bluecrayfish_eye_2
     21300138: bluecrayfish_crapup_2
     21300140: hermitcrap_crap_1_3
+    21300142: Warning
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -707,6 +710,16 @@ TextureImporter:
         height: 5
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Warning
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 269
+        width: 15
+        height: 39
+      alignment: 9
+      pivot: {x: .478267699, y: .307753354}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: Game
   userData: 
