@@ -8,6 +8,9 @@ namespace HutongGames.PlayMaker.Actions
 	[ActionCategory(ActionCategory.Level)]
 	public class LoadLevelWithFade : FsmStateAction
 	{
+		private const float Duration = 1;
+
+
 		[RequiredField]
 		public FsmString levelName;
 		public bool additive;
@@ -31,7 +34,7 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			isFading = true;
 			FadeManager.Instance.SortingOrder = short.MaxValue;
-			FadeManager.Instance.FadeTo(Color.black, 1, () =>
+			FadeManager.Instance.FadeTo(Color.black, Duration, () =>
 			{
 				if (dontDestroyOnLoad.Value)
 				{
@@ -81,6 +84,7 @@ namespace HutongGames.PlayMaker.Actions
 				Fsm.Event(loadedEvent);
 				Finish();
 				isFading = false;
+				FadeManager.FadeIn(Duration);
 			});
 		}
 

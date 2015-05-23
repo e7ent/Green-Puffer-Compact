@@ -40,6 +40,7 @@ public class CreatureCharacter : MonoBehaviour
 	public float Defense { get { return defense; } }
 	public float Luck { get { return luck; } }
 	public float Size { get { return size; } }
+	public float Force { get { return force; } }
 
 
 	protected virtual void Awake()

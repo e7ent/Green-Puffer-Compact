@@ -9,6 +9,7 @@ using UnityEngine.SocialPlatforms;
 using Parse;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using HutongGames.PlayMaker;
 
 public class GameDataManager : MonoSingleton<GameDataManager>
 {
@@ -28,6 +29,9 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	}
 
 
+	private FsmInt bestScoreFsm;
+	private FsmInt allCoinFsm;
+	private bool isLogined = false;
 	private int cachedCoin;
 	private int cachedBestScore;
 	private List<string> cachedOwnedCharacters = new List<string>();
@@ -50,9 +54,11 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 		set
 		{
-			RecordCoinLog(cachedCoin, value);
-			User["coin"] = cachedCoin = value;
-			User.SaveAsync();
+			User["coin"] = value;
+			User.SaveAsync().ContinueWith(t => {
+				RecordCoinLog(cachedCoin, value);
+				allCoinFsm.Value = cachedCoin = value;
+			});
 		}
 	}
 
@@ -66,9 +72,27 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 			if (value <= cachedBestScore)
 				return;
 
-			User["bestScore"] = cachedBestScore = value;
-			User.SaveAsync();
+			User["bestScore"] = value;
+			User.SaveAsync().ContinueWith(t =>
+			{
+				RecordCoinLog(cachedBestScore, value);
+				bestScoreFsm.Value = cachedBestScore = value;
+			});
 		}
+	}
+
+
+	protected override void Awake()
+	{
+		base.Awake();
+		DontDestroyOnLoad(gameObject);
+
+		//PlayGamesPlatform.DebugLogEnabled = true;
+#if UNITY_ANDROID
+		PlayGamesPlatform.Activate();
+#endif
+		bestScoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Best Score");
+		allCoinFsm = FsmVariables.GlobalVariables.FindFsmInt("All Coin");
 	}
 
 
@@ -79,7 +103,10 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 			// if no character
 			// return default character
 			if (User.ContainsKey("characters") == false)
+			{
+				AddCharacter(GameSettings.Instance.defaultCharacters);
 				return new PlayerCharacter[] { GameSettings.Instance.defaultCharacters };
+			}
 
 
 			// get all owned character guids
@@ -88,9 +115,14 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 
 			// make PlayerCharacter List
-			var characters = from character in GameSettings.Instance.characters
-							 where guids.Contains(character.ID.guid)
-							 select character;
+			List<PlayerCharacter> characters = new List<PlayerCharacter>();
+			foreach (var guid in guids)
+			{
+				var character = from c in GameSettings.Instance.characters
+								where c.ID.guid == guid
+								select c;
+				characters.Add(character.First());
+			}
 
 			return characters;
 		}
@@ -103,7 +135,10 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		{
 			// return default character
 			if (User.ContainsKey("characters") == false)
+			{
+				AddCharacter(GameSettings.Instance.defaultCharacters);
 				return GameSettings.Instance.defaultCharacters;
+			}
 
 			// get saved character guid
 			var selectedGuid = PlayerPrefs.GetString("SelectedCharacter", GameSettings.Instance.defaultCharacters.ID.guid);
@@ -126,20 +161,11 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	}
 
 
-	protected override void Awake()
-	{
-		base.Awake();
-		DontDestroyOnLoad(gameObject);
-
-		//PlayGamesPlatform.DebugLogEnabled = true;
-#if UNITY_ANDROID
-		PlayGamesPlatform.Activate();
-#endif
-	}
-
-
 	public Task LoginAsync()
 	{
+		if (isLogined)
+			return Task.FromResult(0);
+
 		var tcs = new TaskCompletionSource<string>();
 
 		// try social login
@@ -149,11 +175,12 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 				tcs.TrySetResult(Social.localUser.userName);
 			else
 			{
+				tcs.TrySetResult(GameSettings.Instance.TestID);/*
 #if UNITY_EDITOR
 				tcs.TrySetResult(GameSettings.Instance.TestID);
 #else
 				tcs.TrySetException(new Exception("Social 로그인 실패."));
-#endif
+#endif*/
 			}
 		});
 
@@ -195,14 +222,15 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		// init some data
 		task.ContinueWith(t =>
 		{
+			isLogined = true;
 			if (!t.IsCompleted || t.IsFaulted)
 			{
 				Debug.LogError("Login Faild");
 				return;
 			}
 			Debug.LogFormat("Login Success {0}", User.Username);
-			cachedCoin = User.Get<int>("coin");
-			cachedBestScore = User.Get<int>("bestScore");
+			allCoinFsm.Value = cachedCoin = User.Get<int>("coin");
+			bestScoreFsm.Value = cachedBestScore = User.Get<int>("bestScore");
 		});
 		
 		return task;
@@ -212,6 +240,13 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	public void Logout()
 	{
 		ParseUser.LogOut();
+	}
+
+
+	public Task AddCharacter(PlayerCharacter pc)
+	{
+		User.AddToList("characters", pc.ID.guid);
+		return User.SaveAsync();
 	}
 
 

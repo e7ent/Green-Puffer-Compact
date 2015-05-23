@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using E7Assets;
 
 public class UICharacterScrollView : MonoBehaviour
 {
+	public float cellHeight;
 	public GameObject cellTemplate;
 
 
@@ -44,12 +47,17 @@ public class UICharacterScrollView : MonoBehaviour
 			t.Find("Character Image").GetComponent<Image>().sprite = characterPrefab.Thumbnail;
 			cells.Add(newCell, characterPrefab);
 		}
+		var rt = GetComponent<RectTransform>();
+		var size = rt.sizeDelta;
+		size.y = cellHeight * (Mathf.Ceil(characters.Count() / 2) + 1);
+		rt.sizeDelta = size;
+
 		cellTemplate.SetActive(false);
 	}
 
 
 	public void OnSelectCell(GameObject sender)
 	{
-		print(cells[sender].ID.guid);
+		FindObjectOfType<UICharacterDetailView>().Apply(cells[sender]);
 	}
 }

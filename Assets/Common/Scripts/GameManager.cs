@@ -25,7 +25,6 @@ public class GameManager : MonoSingleton<GameManager>
 	private PlayerCharacter player;
 	private FsmInt coinFsm;
 	private FsmInt scoreFsm;
-	private FsmInt bestScoreFsm;
 	private FsmFloat hpPercentageFsm;
 
 
@@ -34,14 +33,12 @@ public class GameManager : MonoSingleton<GameManager>
 		base.Awake();
 		coinFsm = FsmVariables.GlobalVariables.FindFsmInt("Coin");
 		scoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Score");
-		bestScoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Best Score");
 		hpPercentageFsm = FsmVariables.GlobalVariables.FindFsmFloat("HP Percentage");
 	}
 
 
 	private void Start()
 	{
-		FadeManager.FadeIn();
 		StartGame();
 	}
 
@@ -108,6 +105,5 @@ public class GameManager : MonoSingleton<GameManager>
 		GameDataManager.Instance.RecordPlayLog(startTime, endTime, Coin);
 		GameDataManager.Instance.BestScore = Score;
 		GameDataManager.Instance.Coin += Coin;
-		bestScoreFsm.Value = GameDataManager.Instance.BestScore;
 	}
 }
