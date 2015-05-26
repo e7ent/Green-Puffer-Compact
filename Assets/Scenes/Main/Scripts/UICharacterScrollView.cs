@@ -8,6 +8,8 @@ using E7Assets;
 public class UICharacterScrollView : MonoBehaviour
 {
 	public float cellHeight;
+	public float cellWidth;
+	public GridLayoutGroup.Axis axis;
 	public GameObject cellTemplate;
 
 
@@ -49,7 +51,10 @@ public class UICharacterScrollView : MonoBehaviour
 		}
 		var rt = GetComponent<RectTransform>();
 		var size = rt.sizeDelta;
-		size.y = cellHeight * (Mathf.Ceil(characters.Count() / 2) + 1);
+		if (axis == GridLayoutGroup.Axis.Horizontal)
+			size.y = cellHeight * (Mathf.Ceil(characters.Count() / 2) + 1);
+		if (axis == GridLayoutGroup.Axis.Vertical)
+			size.x = cellWidth * (Mathf.Ceil(characters.Count()) + 2);
 		rt.sizeDelta = size;
 
 		cellTemplate.SetActive(false);
