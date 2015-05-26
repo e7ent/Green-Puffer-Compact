@@ -6,10 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
-using Parse;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using HutongGames.PlayMaker;
+using Parse;
 
 public class GameDataManager : MonoSingleton<GameDataManager>
 {
@@ -31,7 +29,6 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 	private FsmInt bestScoreFsm;
 	private FsmInt allCoinFsm;
-	private bool isLogined = false;
 	private int cachedCoin;
 	private int cachedBestScore;
 	private List<string> cachedOwnedCharacters = new List<string>();
@@ -87,10 +84,6 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		base.Awake();
 		DontDestroyOnLoad(gameObject);
 
-		//PlayGamesPlatform.DebugLogEnabled = true;
-#if UNITY_ANDROID
-		PlayGamesPlatform.Activate();
-#endif
 		bestScoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Best Score");
 		allCoinFsm = FsmVariables.GlobalVariables.FindFsmInt("All Coin");
 	}
@@ -163,26 +156,16 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 	public Task LoginAsync()
 	{
-		if (isLogined)
-			return Task.FromResult(0);
-
 		var tcs = new TaskCompletionSource<string>();
 
 		// try social login
-		Social.localUser.Authenticate((success) =>
+		UM_GameServiceManager.OnPlayerConnected = () =>
 		{
-			if (success)
-				tcs.TrySetResult(Social.localUser.userName);
-			else
-			{
-				tcs.TrySetResult(GameSettings.Instance.TestID);/*
-#if UNITY_EDITOR
-				tcs.TrySetResult(GameSettings.Instance.TestID);
-#else
-				tcs.TrySetException(new Exception("Social 로그인 실패."));
-#endif*/
-			}
-		});
+			tcs.TrySetResult(UM_GameServiceManager.instance.player.PlayerId);
+			// tcs.TrySetResult(GameSettings.Instance.TestID);
+		};
+
+		UM_GameServiceManager.instance.Connect();
 
 		var task = tcs.Task.ContinueWith(t =>
 		{
@@ -222,7 +205,6 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 		// init some data
 		task.ContinueWith(t =>
 		{
-			isLogined = true;
 			if (!t.IsCompleted || t.IsFaulted)
 			{
 				Debug.LogError("Login Faild");

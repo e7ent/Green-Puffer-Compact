@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+  <string name="app_id">191495546465</string>
+  <string name="achievement_eat_10_squid">CgkI4cyYsMkFEAIQCA</string>
+  <string name="achievement_eat_40_squid">CgkI4cyYsMkFEAIQCQ</string>
+  <string name="achievement_eat_100_squid">CgkI4cyYsMkFEAIQCg</string>
+  <string name="achievement_buy_egg">CgkI4cyYsMkFEAIQCw</string>
+  <string name="achievement_mate">CgkI4cyYsMkFEAIQDA</string>
+  <string name="leaderboard_high_score">CgkI4cyYsMkFEAIQBw</string>
+</resources>
