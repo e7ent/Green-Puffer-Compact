@@ -21,7 +21,7 @@ public class ItemDropTrigger : MonoBehaviour
 				Debug.Log("Not found Rigidbody2D from " + item);
 				continue;
 			}
-			rigid.AddForce(Random.insideUnitCircle, ForceMode2D.Impulse);
+			rigid.AddForce(Random.insideUnitCircle * item.transform.localScale.magnitude, ForceMode2D.Impulse);
 			rigid.AddTorque(Random.Range(-1, 1) * 5);
 		}
 	}

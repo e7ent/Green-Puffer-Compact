@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 088f8f069f4f76844bcef9dd237e476f
-timeCreated: 1432049194
+timeCreated: 1432712520
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,7 @@ TextureImporter:
     21300018: Main UI Atlas Start Press
     21300020: Main UI Atlas Start Normal
     21300022: Main UI Atlas Logo
+    21300024: Main UI Atlas_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -121,16 +122,6 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_12
-      rect:
-        serializedVersion: 2
-        x: 715
-        y: 663
-        width: 6
-        height: 34
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Main UI Atlas_23
       rect:
         serializedVersion: 2
@@ -175,9 +166,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 442
-        y: 659
+        y: 710
         width: 582
-        height: 365
+        height: 314
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas_2
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 659
+        width: 233
+        height: 43
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

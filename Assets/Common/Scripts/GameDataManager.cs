@@ -158,6 +158,8 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	{
 		var tcs = new TaskCompletionSource<string>();
 
+#if !UNITY_EDITOR
+
 		// try social login
 		UM_GameServiceManager.OnPlayerConnected = () =>
 		{
@@ -167,6 +169,9 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 
 		UM_GameServiceManager.instance.Connect();
 
+#else
+		tcs.TrySetResult(GameSettings.Instance.TestID);
+#endif
 		var task = tcs.Task.ContinueWith(t =>
 		{
 			// if social login is failed will return prev task.
