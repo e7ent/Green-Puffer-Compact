@@ -7,8 +7,8 @@ using E7Assets;
 
 public class UICharacterScrollView : MonoBehaviour
 {
-	public float cellHeight;
 	public float cellWidth;
+	public float cellHeight;
 	public GridLayoutGroup.Axis axis;
 	public GameObject cellTemplate;
 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c565af2d9f4321f4aaacc207e76a60a0
-timeCreated: 1432410825
+timeCreated: 1432791863
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,7 +30,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -56,10 +56,10 @@ TextureImporter:
     - name: Mate_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 569
-        width: 476
-        height: 455
+        x: 28
+        y: 595
+        width: 421
+        height: 403
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -91,7 +91,7 @@ TextureImporter:
         width: 318
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

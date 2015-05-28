@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8b6f30126fff15940ada61b8101eb02b
-timeCreated: 1432110437
+timeCreated: 1432794782
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,6 +30,8 @@ TextureImporter:
     21300046: Common UI Atlas Panel 3
     21300048: Common UI Atlas Main Pressed
     21300050: Common UI Atlas Main Normal
+    21300052: Common UI Atlas_0
+    21300054: Common UI Atlas_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +54,7 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -89,9 +91,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 161
-        y: 459
-        width: 52
-        height: 53
+        y: 463
+        width: 48
+        height: 49
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 22, y: 22, z: 22, w: 22}
@@ -168,13 +170,13 @@ TextureImporter:
     - name: Common UI Atlas Panel
       rect:
         serializedVersion: 2
-        x: 181
-        y: 256
-        width: 72
-        height: 100
+        x: 185
+        y: 158
+        width: 68
+        height: 88
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 33, y: 50, z: 33, w: 37}
+      border: {x: 33, y: 43, z: 33, w: 43}
     - name: Common UI Atlas_10
       rect:
         serializedVersion: 2
@@ -335,6 +337,26 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 196
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Common UI Atlas_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 158
+        width: 68
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 33, y: 43, z: 33, w: 43}
   spritePackingTag: Game
   userData: 
   assetBundleName: 

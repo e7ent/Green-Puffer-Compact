@@ -1,20 +1,20 @@
 fileFormatVersion: 2
 guid: 088f8f069f4f76844bcef9dd237e476f
-timeCreated: 1432712520
+timeCreated: 1432793025
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Main UI Atlas_0
-    21300002: Main UI Atlas_1
-    21300004: Main UI Atlas_3
-    21300006: Main UI Atlas_4
-    21300008: Main UI Atlas_6
-    21300010: Main UI Atlas_7
+    21300000: Main UI Atlas Achievement
+    21300002: Main UI Atlas Egg Store
+    21300004: Main UI Atlas MyCharacter
+    21300006: Main UI Atlas Mate
+    21300008: Main UI Atlas Egg Store Pressed
+    21300010: Main UI Atlas Achievement Pressed
     21300012: Main UI Atlas_12
-    21300014: Main UI Atlas_23
-    21300016: Main UI Atlas_24
-    21300018: Main UI Atlas Start Press
-    21300020: Main UI Atlas Start Normal
+    21300014: Main UI Atlas MyCharacter Pressed
+    21300016: Main UI Atlas Mate Pressed
+    21300018: Main UI Atlas Start
+    21300020: Main UI Atlas Start Active
     21300022: Main UI Atlas Logo
     21300024: Main UI Atlas_2
   serializedVersion: 2
@@ -39,11 +39,11 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -62,100 +62,100 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Main UI Atlas_0
+    - name: Main UI Atlas Achievement
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 299
+        width: 135
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas Egg Store
       rect:
         serializedVersion: 2
         x: 0
-        y: 868
+        y: 157
         width: 135
-        height: 156
+        height: 141
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_1
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 868
-        width: 135
-        height: 156
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_3
+    - name: Main UI Atlas MyCharacter
       rect:
         serializedVersion: 2
         x: 0
-        y: 708
+        y: 299
         width: 135
-        height: 156
+        height: 141
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_4
+    - name: Main UI Atlas Mate
       rect:
         serializedVersion: 2
-        x: 140
-        y: 708
+        x: 272
+        y: 157
         width: 135
-        height: 156
+        height: 141
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_6
+    - name: Main UI Atlas Egg Store Pressed
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 157
+        width: 135
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas Achievement Pressed
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 299
+        width: 135
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas MyCharacter Pressed
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 299
+        width: 135
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas Mate Pressed
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 157
+        width: 135
+        height: 141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Main UI Atlas Start
       rect:
         serializedVersion: 2
         x: 0
-        y: 550
-        width: 135
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_7
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 550
-        width: 135
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_23
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 390
-        width: 135
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas_24
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 390
-        width: 135
-        height: 150
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas Start Press
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
+        y: 0
         width: 330
-        height: 144
+        height: 156
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Main UI Atlas Start Normal
+    - name: Main UI Atlas Start Active
       rect:
         serializedVersion: 2
-        x: 348
+        x: 331
         y: 0
         width: 330
         height: 156
