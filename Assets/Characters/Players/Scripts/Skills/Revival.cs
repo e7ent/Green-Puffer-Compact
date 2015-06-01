@@ -5,7 +5,7 @@ namespace Skills
 {
 	public class Revival : PassiveSkillBase
 	{
-		public override void Update(MonoBehaviour user)
+		public override void Update()
 		{
 			throw new System.NotImplementedException();
 		}

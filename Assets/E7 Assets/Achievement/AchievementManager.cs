@@ -11,19 +11,31 @@ namespace E7Assets.Achievement
 {
 	public class AchievementManager : MonoSingleton<AchievementManager>
 	{
-		private List<Achievement> achievements = null;
+		private List<IAchievement> achievements = null;
 
+		public class TEST:ScriptableObject
+		{
+			public string asdf;
+		}
 
 		public bool IsInit { get { return achievements != null; } }
+
+
+		protected override void Awake()
+		{
+			base.Awake();
+			DontDestroyOnLoad(this);
+		}
 
 
 		public Task Init()
 		{
 			var assets = Resources.LoadAll<Achievement>("Achievements");
-			achievements = new List<Achievement>(assets);
 
 			var query = ParseObject.GetQuery("Achievement");
 			query.WhereEqualTo("createdBy", DataManager.instance.User);
+
+			achievements = new List<IAchievement>(assets.Cast<IAchievement>());
 
 			return query.FindAsync().ContinueWith(t =>
 			{
@@ -37,7 +49,7 @@ namespace E7Assets.Achievement
 						if (curr.ID != id)
 							continue;
 
-						achievements[i].IsFinish = item.Get<bool>("finish");
+						assets[i].IsFinish = item.Get<bool>("finish");
 						break;
 					}
 				}
@@ -54,6 +66,12 @@ namespace E7Assets.Achievement
 			}
 
 			return (from ac in achievements where ac.ID == id select ac).First();
+		}
+
+
+		public IEnumerable<IAchievement> GetAllAchievement()
+		{
+			return achievements;
 		}
 	}
 }

@@ -154,7 +154,7 @@ public class DataManager : MonoSingleton<DataManager>
 	}
 
 
-	public Task LoginAsync()
+	public Task Init()
 	{
 		var tcs = new TaskCompletionSource<string>();
 
@@ -187,7 +187,6 @@ public class DataManager : MonoSingleton<DataManager>
 				if (t2.Result > 0)
 				{
 					// try login
-					Debug.LogFormat("Try Login username:{0}", t.Result);
 					return ParseUser.LogInAsync(t.Result, t.Result);
 				}
 
@@ -199,7 +198,6 @@ public class DataManager : MonoSingleton<DataManager>
 				};
 
 				// try signup
-				Debug.LogFormat("Try Signup username:{0}", user.Username);
 				return user.SignUpAsync();
 
 			}).Unwrap();
@@ -215,7 +213,7 @@ public class DataManager : MonoSingleton<DataManager>
 				Debug.LogError("Login Faild");
 				return;
 			}
-			Debug.LogFormat("Login Success {0}", User.Username);
+			Debug.LogFormat("Login Success");
 			allCoinFsm.Value = cachedCoin = User.Get<int>("coin");
 			bestScoreFsm.Value = cachedBestScore = User.Get<int>("bestScore");
 		});

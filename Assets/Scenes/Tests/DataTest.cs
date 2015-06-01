@@ -13,7 +13,7 @@ public class DataTest : MonoBehaviour {
 	{
 		if (GUILayout.Button("Login"))
 		{
-			DataManager.Instance.LoginAsync();
+			DataManager.Instance.Init();
 		}
 
 		if (GUILayout.Button("Test PlayLog"))

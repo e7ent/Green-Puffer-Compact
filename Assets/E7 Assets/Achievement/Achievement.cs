@@ -66,7 +66,7 @@ namespace E7Assets.Achievement
 			if (IsFinish)
 				return;
 
-			if (CurrentStep >= TotalStep)
+			if (IsSatisfy)
 				return;
 
 			CurrentStep++;

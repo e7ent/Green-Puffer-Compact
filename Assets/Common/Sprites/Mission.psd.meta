@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: e5fddc5567dc43547a89539127de8560
-timeCreated: 1432411136
+timeCreated: 1433185361
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Mission_0
+    21300000: Mission Mission Label
+    21300002: Mission Icon Frame
+    21300004: Mission_1
+    21300006: Mission_2
+    21300008: Mission_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,13 +54,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Mission_0
+    - name: Mission Mission Label
       rect:
         serializedVersion: 2
         x: 0
         y: 946
         width: 354
         height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mission Icon Frame
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mission_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 655
+        width: 87
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mission_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 655
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mission_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 656
+        width: 135
+        height: 135
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -16,11 +16,8 @@ public class UICharacterScrollView : MonoBehaviour
 	private Dictionary<GameObject, PlayerCharacter> cells = new Dictionary<GameObject, PlayerCharacter>();
 
 
-	IEnumerator Start()
+	private void Start()
 	{
-		var task = DataManager.Instance.LoginAsync();
-		while (!task.IsCompleted) yield return null;
-
 		Refresh();
 	}
 

@@ -5,13 +5,8 @@ using Parse;
 
 public class UISelectedCharacter : MonoBehaviour
 {
-
-
-	public IEnumerator Start()
+	private void Start()
 	{
-		var task = DataManager.Instance.LoginAsync();
-		while (task.IsCompleted == false) yield return null;
-
 		var character = Instantiate<PlayerCharacter>(DataManager.Instance.SelectedCharacter);
 
 		var components = from component in character.GetComponents<Component>()

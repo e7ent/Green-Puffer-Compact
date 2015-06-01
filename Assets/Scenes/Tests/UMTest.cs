@@ -5,7 +5,7 @@ public class UMTest : MonoBehaviour {
 
 	void Start () 
 	{
-		DataManager.Instance.LoginAsync();
+		DataManager.Instance.Init();
 	}
 
 

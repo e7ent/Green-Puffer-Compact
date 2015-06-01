@@ -13,6 +13,6 @@ public abstract class PassiveSkillBase : ScriptableObject, ISkill
 		get { return description; }
 	}
 
-	public abstract void Update(MonoBehaviour user);
+	public abstract void Update();
 	public abstract void Use();
 }
