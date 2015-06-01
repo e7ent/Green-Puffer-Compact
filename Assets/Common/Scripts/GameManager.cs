@@ -5,9 +5,25 @@ using HutongGames.PlayMaker;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+	private bool isFinish;
+	private int coin;
+	private int score;
+	private float startTime;
+
+	// current player
+	private PlayerCharacter player;
+
+	// fsm vars
+	private FsmInt coinFsm;
+	private FsmInt scoreFsm;
+	private FsmFloat hpPercentageFsm;
+
+
+	#region Properties
+
 	public int Score
 	{
-		get { return score + (int)(endTime - startTime); }
+		get { return score + (int)(Time.time - startTime); }
 		set { score = value; }
 	}
 
@@ -17,15 +33,11 @@ public class GameManager : MonoSingleton<GameManager>
 		set { coin = value; }
 	}
 
+	public bool IsFinish { get { return isFinish; } }
 
-	private bool isGameOver = false;
-	private int coin;
-	private int score;
-	private float startTime, endTime;
-	private PlayerCharacter player;
-	private FsmInt coinFsm;
-	private FsmInt scoreFsm;
-	private FsmFloat hpPercentageFsm;
+	public bool IsPause { get { return Time.timeScale <= float.Epsilon; } }
+
+	#endregion
 
 
 	protected override void Awake()
@@ -39,21 +51,21 @@ public class GameManager : MonoSingleton<GameManager>
 
 	private void Start()
 	{
-		StartGame();
+		isFinish = false;
+		startTime = Time.time;
+		InstantiatePlayerCharacter(DataManager.instance.SelectedCharacter);
 	}
 
 
 	private void Update()
 	{
-		if (isGameOver)
+		if (isFinish)
 			return;
 
 		if (player == null)
 			player = FindObjectOfType<PlayerCharacter>();
 		if (player == null)
 			return;
-
-		endTime = Time.time;
 
 		UpdateFsm();
 	}
@@ -67,22 +79,7 @@ public class GameManager : MonoSingleton<GameManager>
 	}
 
 
-	public void StartGame()
-	{
-		startTime = Time.time;
-		CreatePlayer(GameDataManager.instance.SelectedCharacter);
-	}
-
-
-	public void CreatePlayer(string guid)
-	{
-		var characters = GameSettings.Instance.characters;
-		var prefab = from character in characters where character.ID.guid == guid select character;
-		CreatePlayer(prefab.First());
-	}
-
-
-	public void CreatePlayer(PlayerCharacter prefab)
+	public PlayerCharacter InstantiatePlayerCharacter(PlayerCharacter prefab)
 	{
 		var position = Vector3.zero;
 		var rotation = Quaternion.identity;
@@ -96,14 +93,33 @@ public class GameManager : MonoSingleton<GameManager>
 
 		Instantiate(GameSettings.Instance.createEffect, position, Quaternion.identity);
 		player = Instantiate(prefab, position, rotation) as PlayerCharacter;
+		return player;
 	}
 
 
-	public void Flush()
+	public void Finish()
 	{
-		print("GameManager Data Flush");
-		GameDataManager.Instance.RecordPlayLog(startTime, endTime, Coin);
-		GameDataManager.Instance.BestScore = Score;
-		GameDataManager.Instance.Coin += Coin;
+		if (isFinish) return;
+
+		Pause();
+
+		DataManager.Instance.RecordPlayLog(startTime, Time.time, Coin);
+		DataManager.Instance.BestScore = Score;
+		DataManager.Instance.Coin += Coin;
+		PlayMakerFSM.BroadcastEvent("OnGameFinish");
+
+		isFinish = true;
+	}
+
+
+	public void Pause()
+	{
+		Time.timeScale = 0;
+	}
+
+
+	public void Resume()
+	{
+		Time.timeScale = 1;
 	}
 }

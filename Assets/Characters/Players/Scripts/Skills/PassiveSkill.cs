@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class PassiveSkill : ScriptableObject, ISkill
+public abstract class PassiveSkillBase : ScriptableObject, ISkill
 {
 	[SerializeField]
 	[Multiline()]

@@ -18,7 +18,7 @@ public class UICharacterScrollView : MonoBehaviour
 
 	IEnumerator Start()
 	{
-		var task = GameDataManager.Instance.LoginAsync();
+		var task = DataManager.Instance.LoginAsync();
 		while (!task.IsCompleted) yield return null;
 
 		Refresh();
@@ -35,7 +35,7 @@ public class UICharacterScrollView : MonoBehaviour
 		cells.Clear();
 
 		// create new
-		var characters = GameDataManager.Instance.OwnedCharacters;
+		var characters = DataManager.Instance.OwnedCharacters;
 		foreach (var characterPrefab in characters)
 		{
 			var newCell = Instantiate<GameObject>(cellTemplate);

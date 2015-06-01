@@ -24,7 +24,7 @@ public class RandomLotteryEgg : MonoBehaviour, IPointerUpHandler
 		yield return new WaitForSeconds(fadeDuration);
 		FadeManager.FadeIn();
 		yield return new WaitForSeconds(1);
-		GameDataManager.Instance.AddCharacter(newCharacter);
+		DataManager.Instance.AddCharacter(newCharacter);
 		FindObjectOfType<UICharacterDetailView>().Apply(newCharacter);
 	}
 }

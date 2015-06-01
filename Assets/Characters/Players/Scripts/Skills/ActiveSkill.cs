@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class ActiveSkill : ScriptableObject, ISkill
+public abstract class ActiveSkillBase : ScriptableObject, ISkill
 {
 	[SerializeField]
 	[Multiline()]

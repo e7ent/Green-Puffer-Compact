@@ -54,8 +54,8 @@ public sealed class PlayerCharacter : CreatureCharacter
 
 
 	[Header("Skill")]
-	[SerializeField] private ActiveSkill activeSkill = null;
-	[SerializeField] private PassiveSkill passiveSkill = null;
+	[SerializeField] private ActiveSkillBase activeSkill = null;
+	[SerializeField] private PassiveSkillBase passiveSkill = null;
 
 	private StateType currentState;
 

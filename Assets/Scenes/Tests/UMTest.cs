@@ -5,13 +5,13 @@ public class UMTest : MonoBehaviour {
 
 	void Start () 
 	{
-		GameDataManager.Instance.LoginAsync();
+		DataManager.Instance.LoginAsync();
 	}
 
 
 	public void OnGUI()
 	{
-		if (GameDataManager.Instance.User == null)
+		if (DataManager.Instance.User == null)
 			return;
 
 

@@ -9,17 +9,17 @@ using UnityEngine.SocialPlatforms;
 using HutongGames.PlayMaker;
 using Parse;
 
-public class GameDataManager : MonoSingleton<GameDataManager>
+public class DataManager : MonoSingleton<DataManager>
 {
 	// singleton property
-	public static GameDataManager Instance
+	public static DataManager Instance
 	{
 		get
 		{
 			if (instance == null)
 			{
-				Debug.Log("GameDataManager의 instance를 생성합니다.");
-				instance = new GameObject("_GameDataManager").AddComponent<GameDataManager>();
+				Debug.Log("DataManager의 instance를 생성합니다.");
+				instance = new GameObject("_Data Manager").AddComponent<DataManager>();
 			}
 
 			return instance;
@@ -93,7 +93,7 @@ public class GameDataManager : MonoSingleton<GameDataManager>
 	{
 		get
 		{
-			// if no character
+			// if no have character
 			// return default character
 			if (User.ContainsKey("characters") == false)
 			{

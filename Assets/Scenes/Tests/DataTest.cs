@@ -13,7 +13,7 @@ public class DataTest : MonoBehaviour {
 	{
 		if (GUILayout.Button("Login"))
 		{
-			GameDataManager.Instance.LoginAsync();
+			DataManager.Instance.LoginAsync();
 		}
 
 		if (GUILayout.Button("Test PlayLog"))
@@ -28,7 +28,7 @@ public class DataTest : MonoBehaviour {
 
 		if (GUILayout.Button("Set Best Score"))
 		{
-			var user = GameDataManager.Instance.User;
+			var user = DataManager.Instance.User;
 			user["bestScore"] = 100;
 			user.SaveAsync();
 		}
@@ -47,7 +47,7 @@ public class DataTest : MonoBehaviour {
 			//GameDataManager.Instance.User.AddRangeToList<string>("characters", guids);
 			//GameDataManager.Instance.User.SaveAsync();
 
-			var list = GameDataManager.Instance.User.Get<IEnumerable<object>>("characters");
+			var list = DataManager.Instance.User.Get<IEnumerable<object>>("characters");
 			foreach (string item in list)
 			{
 				print(item);
@@ -57,7 +57,7 @@ public class DataTest : MonoBehaviour {
 
 		if (GUILayout.Button("Create All Owned Characters"))
 		{
-			foreach (var item in GameDataManager.Instance.OwnedCharacters)
+			foreach (var item in DataManager.Instance.OwnedCharacters)
 			{
 				Instantiate<PlayerCharacter>(item);
 			}
@@ -67,12 +67,12 @@ public class DataTest : MonoBehaviour {
 
 	void Test_RecordPlayLog()
 	{
-		GameDataManager.Instance.RecordPlayLog(Time.realtimeSinceStartup, Time.realtimeSinceStartup + 100, 100);
+		DataManager.Instance.RecordPlayLog(Time.realtimeSinceStartup, Time.realtimeSinceStartup + 100, 100);
 	}
 
 
 	void Test_RecordCoinLog()
 	{
-		GameDataManager.Instance.RecordCoinLog(100, 200);
+		DataManager.Instance.RecordCoinLog(100, 200);
 	}
 }

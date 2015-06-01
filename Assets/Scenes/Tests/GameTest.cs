@@ -12,7 +12,7 @@ public class GameTest : MonoBehaviour {
 
 		if (GUILayout.Button("Create Player"))
 		{
-			GameManager.Instance.CreatePlayer(guid);
+			GameManager.Instance.InstantiatePlayerCharacter(GameSettings.Instance.GetPlayerPrefabFromGUID(guid));
 		}
 	}
 }

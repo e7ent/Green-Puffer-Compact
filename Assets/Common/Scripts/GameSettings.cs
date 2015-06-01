@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -57,4 +58,13 @@ public class GameSettings : ScriptableObject
 
 	[Header("Prefabs")]
 	public GameObject warningPrefab;
+
+
+	public PlayerCharacter GetPlayerPrefabFromGUID(string guid)
+	{
+		var characters = GameSettings.Instance.characters;
+		var prefabs = from character in characters where character.ID.guid == guid select character;
+
+		return prefabs.First();
+	}
 }

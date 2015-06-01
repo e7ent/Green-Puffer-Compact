@@ -9,10 +9,10 @@ public class UISelectedCharacter : MonoBehaviour
 
 	public IEnumerator Start()
 	{
-		var task = GameDataManager.Instance.LoginAsync();
+		var task = DataManager.Instance.LoginAsync();
 		while (task.IsCompleted == false) yield return null;
 
-		var character = Instantiate<PlayerCharacter>(GameDataManager.Instance.SelectedCharacter);
+		var character = Instantiate<PlayerCharacter>(DataManager.Instance.SelectedCharacter);
 
 		var components = from component in character.GetComponents<Component>()
 						 where component.GetType() != typeof(Transform)

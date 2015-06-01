@@ -36,8 +36,6 @@ public class PlayerUserControl : MonoBehaviour
 	IEnumerator OnKill()
 	{
 		yield return null;
-		Time.timeScale = 0;
-		GameManager.Instance.Flush();
-		PlayMakerFSM.BroadcastEvent("OnGameFinish");
+		GameManager.Instance.Finish();
 	}
 }
