@@ -60,10 +60,10 @@ public class GameSettings : ScriptableObject
 	public GameObject warningPrefab;
 
 
-	public PlayerCharacter GetPlayerPrefabFromGUID(string guid)
+	public PlayerCharacter GetPlayerPrefabFromGUID(string id)
 	{
 		var characters = GameSettings.Instance.characters;
-		var prefabs = from character in characters where character.ID.guid == guid select character;
+		var prefabs = from character in characters where character.ID == id select character;
 
 		return prefabs.First();
 	}

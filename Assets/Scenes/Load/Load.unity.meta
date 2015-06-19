@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: d71306a69a4ae204a9e5f7bd061dd0d7
+labels:
+- MainScene
 timeCreated: 1433182722
 licenseType: Free
 DefaultImporter:

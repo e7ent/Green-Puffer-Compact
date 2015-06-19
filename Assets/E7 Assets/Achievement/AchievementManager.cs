@@ -13,11 +13,6 @@ namespace E7Assets.Achievement
 	{
 		private List<IAchievement> achievements = null;
 
-		public class TEST:ScriptableObject
-		{
-			public string asdf;
-		}
-
 		public bool IsInit { get { return achievements != null; } }
 
 

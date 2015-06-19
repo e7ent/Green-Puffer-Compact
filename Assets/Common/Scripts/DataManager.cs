@@ -103,16 +103,16 @@ public class DataManager : MonoSingleton<DataManager>
 
 
 			// get all owned character guids
-			var guids = from obj in User.Get<IEnumerable<object>>("characters")
+			var uuids = from obj in User.Get<IEnumerable<object>>("characters")
 						select obj as string;
 
 
 			// make PlayerCharacter List
 			List<PlayerCharacter> characters = new List<PlayerCharacter>();
-			foreach (var guid in guids)
+			foreach (var uuid in uuids)
 			{
 				var character = from c in GameSettings.Instance.characters
-								where c.ID.guid == guid
+								where c.ID == uuid
 								select c;
 				characters.Add(character.First());
 			}
@@ -134,11 +134,11 @@ public class DataManager : MonoSingleton<DataManager>
 			}
 
 			// get saved character guid
-			var selectedGuid = PlayerPrefs.GetString("SelectedCharacter", GameSettings.Instance.defaultCharacters.ID.guid);
+			var selectedUuid = PlayerPrefs.GetString("SelectedCharacter", GameSettings.Instance.defaultCharacters.ID);
 
 			// compare owned character
 			var characters = from character in OwnedCharacters
-							where character.ID.guid == selectedGuid
+							where character.ID == selectedUuid
 							select character;
 			if (characters.Count() <= 0)
 				return GameSettings.Instance.defaultCharacters;
@@ -149,7 +149,7 @@ public class DataManager : MonoSingleton<DataManager>
 
 		set
 		{
-			PlayerPrefs.SetString("SelectedCharacter", value.ID.guid);
+			PlayerPrefs.SetString("SelectedCharacter", value.ID);
 		}
 	}
 
@@ -160,6 +160,7 @@ public class DataManager : MonoSingleton<DataManager>
 
 #if !UNITY_EDITOR
 
+        Debug.Log("로그인 시도");
 		// try social login
 		UM_GameServiceManager.OnPlayerConnected = () =>
 		{
@@ -202,7 +203,6 @@ public class DataManager : MonoSingleton<DataManager>
 
 			}).Unwrap();
 
-
 		}).Unwrap();
 
 		// init some data
@@ -213,7 +213,7 @@ public class DataManager : MonoSingleton<DataManager>
 				Debug.LogError("Login Faild");
 				return;
 			}
-			Debug.LogFormat("Login Success");
+			Debug.Log("로그인 완료");
 			allCoinFsm.Value = cachedCoin = User.Get<int>("coin");
 			bestScoreFsm.Value = cachedBestScore = User.Get<int>("bestScore");
 		});
@@ -230,7 +230,7 @@ public class DataManager : MonoSingleton<DataManager>
 
 	public Task AddCharacter(PlayerCharacter pc)
 	{
-		User.AddToList("characters", pc.ID.guid);
+		User.AddToList("characters", pc.ID);
 		return User.SaveAsync();
 	}
 

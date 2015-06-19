@@ -29,7 +29,7 @@ public class UICharacterDetailView : MonoBehaviour
 
 		description.text = pc.Description;
 
-		select.interactable = DataManager.Instance.SelectedCharacter.ID.guid != pc.ID.guid;
+		select.interactable = DataManager.Instance.SelectedCharacter.ID != pc.ID;
 
 		SendMessage("Show");
 	}
@@ -38,6 +38,6 @@ public class UICharacterDetailView : MonoBehaviour
 	public void Select()
 	{
 		DataManager.Instance.SelectedCharacter = character;
-		select.interactable = DataManager.Instance.SelectedCharacter.ID.guid != character.ID.guid;
+		select.interactable = DataManager.Instance.SelectedCharacter.ID != character.ID;
 	}
 }
