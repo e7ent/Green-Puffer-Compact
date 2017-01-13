@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using UnityEngine;
-using System.Collections;
-using HutongGames.PlayMaker;
+﻿using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -13,13 +10,6 @@ public class GameManager : MonoSingleton<GameManager>
 	// current player
 	private PlayerCharacter player;
 
-	// fsm vars
-	private FsmInt coinFsm;
-	private FsmInt scoreFsm;
-	private FsmFloat hpPercentageFsm;
-
-
-	#region Properties
 
 	public int Score
 	{
@@ -37,15 +27,10 @@ public class GameManager : MonoSingleton<GameManager>
 
 	public bool IsPause { get { return Time.timeScale <= float.Epsilon; } }
 
-	#endregion
-
 
 	protected override void Awake()
 	{
 		base.Awake();
-		coinFsm = FsmVariables.GlobalVariables.FindFsmInt("Coin");
-		scoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Score");
-		hpPercentageFsm = FsmVariables.GlobalVariables.FindFsmFloat("HP Percentage");
 	}
 
 
@@ -67,16 +52,16 @@ public class GameManager : MonoSingleton<GameManager>
 		if (player == null)
 			return;
 
-		UpdateFsm();
+		//UpdateFsm();
 	}
 
 
-	private void UpdateFsm()
-	{
-		hpPercentageFsm.Value = player.HP / player.MaxHP;
-		coinFsm.Value = Coin;
-		scoreFsm.Value = Score;
-	}
+	//private void UpdateFsm()
+	//{
+	//	hpPercentageFsm.Value = player.HP / player.MaxHP;
+	//	coinFsm.Value = Coin;
+	//	scoreFsm.Value = Score;
+	//}
 
 
 	public PlayerCharacter InstantiatePlayerCharacter(PlayerCharacter prefab)
@@ -106,7 +91,7 @@ public class GameManager : MonoSingleton<GameManager>
 		DataManager.Instance.RecordPlayLog(startTime, Time.time, Coin);
 		DataManager.Instance.BestScore = Score;
 		DataManager.Instance.Coin += Coin;
-		PlayMakerFSM.BroadcastEvent("OnGameFinish");
+		//PlayMakerFSM.BroadcastEvent("OnGameFinish");
 
 		isFinish = true;
 	}

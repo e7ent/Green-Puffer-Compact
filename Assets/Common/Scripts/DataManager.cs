@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Collections;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using HutongGames.PlayMaker;
 using Parse;
 
 public class DataManager : MonoSingleton<DataManager>
@@ -27,8 +22,8 @@ public class DataManager : MonoSingleton<DataManager>
 	}
 
 
-	private FsmInt bestScoreFsm;
-	private FsmInt allCoinFsm;
+	//private FsmInt bestScoreFsm;
+	//private FsmInt allCoinFsm;
 	private int cachedCoin;
 	private int cachedBestScore;
 	private List<string> cachedOwnedCharacters = new List<string>();
@@ -52,10 +47,10 @@ public class DataManager : MonoSingleton<DataManager>
 		set
 		{
 			User["coin"] = value;
-			User.SaveAsync().ContinueWith(t => {
-				RecordCoinLog(cachedCoin, value);
-				allCoinFsm.Value = cachedCoin = value;
-			});
+			//User.SaveAsync().ContinueWith(t => {
+			//	RecordCoinLog(cachedCoin, value);
+			//	allCoinFsm.Value = cachedCoin = value;
+			//});
 		}
 	}
 
@@ -73,7 +68,7 @@ public class DataManager : MonoSingleton<DataManager>
 			User.SaveAsync().ContinueWith(t =>
 			{
 				RecordCoinLog(cachedBestScore, value);
-				bestScoreFsm.Value = cachedBestScore = value;
+				//bestScoreFsm.Value = cachedBestScore = value;
 			});
 		}
 	}
@@ -84,8 +79,8 @@ public class DataManager : MonoSingleton<DataManager>
 		base.Awake();
 		DontDestroyOnLoad(gameObject);
 
-		bestScoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Best Score");
-		allCoinFsm = FsmVariables.GlobalVariables.FindFsmInt("All Coin");
+		//bestScoreFsm = FsmVariables.GlobalVariables.FindFsmInt("Best Score");
+		//allCoinFsm = FsmVariables.GlobalVariables.FindFsmInt("All Coin");
 	}
 
 
@@ -214,8 +209,8 @@ public class DataManager : MonoSingleton<DataManager>
 				return;
 			}
 			Debug.Log("로그인 완료");
-			allCoinFsm.Value = cachedCoin = User.Get<int>("coin");
-			bestScoreFsm.Value = cachedBestScore = User.Get<int>("bestScore");
+			//allCoinFsm.Value = cachedCoin = User.Get<int>("coin");
+			//bestScoreFsm.Value = cachedBestScore = User.Get<int>("bestScore");
 		});
 		
 		return task;
