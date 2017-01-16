@@ -2,6 +2,7 @@
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 namespace GreenPuffer.Inputs.Joysticks
 {
@@ -113,18 +114,36 @@ namespace GreenPuffer.Inputs.Joysticks
             }
         }
 
+        private TouchPhase lastPhase = TouchPhase.Ended;
         private bool TryGetInputPosition(out Vector3 pos)
         {
             if (Input.GetMouseButton(0))
             {
-                pos = Input.mousePosition;
-                return true;
+                if ((lastPhase == TouchPhase.Ended && !EventSystem.current.IsPointerOverGameObject()) ||
+                    lastPhase != TouchPhase.Ended)
+                {
+                    if (lastPhase == TouchPhase.Ended)
+                        lastPhase = TouchPhase.Began;
+                    if (lastPhase == TouchPhase.Moved)
+                        lastPhase = TouchPhase.Moved;
+                    pos = Input.mousePosition;
+                    return true;
+                }
             }
             else if (Input.touchCount >= 1)
             {
-                pos = Input.GetTouch(0).position;
-                return true;
+                if ((lastPhase == TouchPhase.Ended && !EventSystem.current.IsPointerOverGameObject()) ||
+                    lastPhase != TouchPhase.Ended)
+                {
+                    if (lastPhase == TouchPhase.Ended)
+                        lastPhase = TouchPhase.Began;
+                    if (lastPhase == TouchPhase.Moved)
+                        lastPhase = TouchPhase.Moved;
+                    pos = Input.GetTouch(0).position;
+                    return true;
+                }
             }
+            lastPhase = TouchPhase.Ended;
             pos = Vector3.zero;
             return false;
         }
@@ -145,6 +164,7 @@ namespace GreenPuffer.Inputs.Joysticks
             }
             else
             {
+                Clear();
                 if (targetImage.enabled)
                 {
                     targetImage.enabled = false;

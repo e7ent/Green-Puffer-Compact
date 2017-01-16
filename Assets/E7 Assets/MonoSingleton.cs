@@ -4,7 +4,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
 	protected static T instance;
 
-
 	public static T Instance
 	{
 		get
@@ -19,7 +18,6 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 		}
 	}
 
-
 	protected virtual void Awake()
 	{
 		if(instance != null)
@@ -33,6 +31,9 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 
 	protected virtual void OnDestroy()
 	{
-		if (instance == this) instance = null;
+		if (instance == this)
+		{
+			instance = null;
+		}
 	}
 }

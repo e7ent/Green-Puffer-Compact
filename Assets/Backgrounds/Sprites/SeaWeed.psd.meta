@@ -18,12 +18,12 @@ TextureImporter:
     21300026: object_seaweed_11
     21300028: object_seaweed_21
     21300030: object_seaweed_31
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -31,14 +31,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 1024
@@ -49,21 +47,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: object_seaweed_0
+    - serializedVersion: 2
+      name: object_seaweed_0
       rect:
         serializedVersion: 2
         x: 12
@@ -71,9 +100,12 @@ TextureImporter:
         width: 80
         height: 221
       alignment: 9
-      pivot: {x: .264033228, y: .0857516304}
+      pivot: {x: 0.26403323, y: 0.08575163}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_10
       rect:
         serializedVersion: 2
         x: 100
@@ -81,9 +113,12 @@ TextureImporter:
         width: 87
         height: 219
       alignment: 9
-      pivot: {x: .0347450525, y: .0821113735}
+      pivot: {x: 0.034745052, y: 0.08211137}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_20
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_20
       rect:
         serializedVersion: 2
         x: 199
@@ -91,9 +126,12 @@ TextureImporter:
         width: 67
         height: 198
       alignment: 9
-      pivot: {x: .0767920166, y: .0861372501}
+      pivot: {x: 0.07679202, y: 0.08613725}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_30
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_30
       rect:
         serializedVersion: 2
         x: 277
@@ -101,9 +139,12 @@ TextureImporter:
         width: 81
         height: 252
       alignment: 9
-      pivot: {x: .0987654328, y: .0829367265}
+      pivot: {x: 0.09876543, y: 0.08293673}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_01
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_01
       rect:
         serializedVersion: 2
         x: 14
@@ -111,9 +152,12 @@ TextureImporter:
         width: 81
         height: 221
       alignment: 9
-      pivot: {x: .222222358, y: .0859728828}
+      pivot: {x: 0.22222236, y: 0.08597288}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_11
       rect:
         serializedVersion: 2
         x: 99
@@ -121,9 +165,12 @@ TextureImporter:
         width: 99
         height: 218
       alignment: 9
-      pivot: {x: .0303031076, y: .0825688392}
+      pivot: {x: 0.030303108, y: 0.08256884}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_21
       rect:
         serializedVersion: 2
         x: 198
@@ -131,9 +178,12 @@ TextureImporter:
         width: 68
         height: 196
       alignment: 9
-      pivot: {x: .0735294148, y: .0918367729}
+      pivot: {x: 0.073529415, y: 0.09183677}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_seaweed_31
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_seaweed_31
       rect:
         serializedVersion: 2
         x: 277
@@ -141,8 +191,11 @@ TextureImporter:
         width: 82
         height: 252
       alignment: 9
-      pivot: {x: .0853658542, y: .0833333656}
+      pivot: {x: 0.085365854, y: 0.083333366}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: Game
   userData: 
   assetBundleName: 

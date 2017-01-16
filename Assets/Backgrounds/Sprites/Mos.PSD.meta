@@ -16,12 +16,12 @@ TextureImporter:
     21300022: object_mos_30
     21300024: object_mos_41
     21300026: object_mos_3
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -29,14 +29,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 1024
@@ -47,21 +45,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 60
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: object_mos_0
+    - serializedVersion: 2
+      name: object_mos_0
       rect:
         serializedVersion: 2
         x: 52
@@ -69,9 +98,12 @@ TextureImporter:
         width: 94
         height: 161
       alignment: 9
-      pivot: {x: .245276272, y: .123999983}
+      pivot: {x: 0.24527627, y: 0.12399998}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_01
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_01
       rect:
         serializedVersion: 2
         x: 153
@@ -79,9 +111,12 @@ TextureImporter:
         width: 92
         height: 160
       alignment: 9
-      pivot: {x: .21847783, y: .12462499}
+      pivot: {x: 0.21847783, y: 0.12462499}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_1
       rect:
         serializedVersion: 2
         x: 266
@@ -89,9 +124,12 @@ TextureImporter:
         width: 48
         height: 74
       alignment: 9
-      pivot: {x: .450000137, y: .135135084}
+      pivot: {x: 0.45000014, y: 0.13513508}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_11
       rect:
         serializedVersion: 2
         x: 339
@@ -99,9 +137,12 @@ TextureImporter:
         width: 48
         height: 72
       alignment: 9
-      pivot: {x: .427083343, y: .124999948}
+      pivot: {x: 0.42708334, y: 0.12499995}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_2
       rect:
         serializedVersion: 2
         x: 416
@@ -109,9 +150,12 @@ TextureImporter:
         width: 63
         height: 86
       alignment: 9
-      pivot: {x: .341269851, y: .127906933}
+      pivot: {x: 0.34126985, y: 0.12790693}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_21
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_21
       rect:
         serializedVersion: 2
         x: 488
@@ -119,9 +163,12 @@ TextureImporter:
         width: 63
         height: 86
       alignment: 9
-      pivot: {x: .341675282, y: .12784332}
+      pivot: {x: 0.34167528, y: 0.12784332}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_3
       rect:
         serializedVersion: 2
         x: 563
@@ -129,9 +176,12 @@ TextureImporter:
         width: 76
         height: 129
       alignment: 9
-      pivot: {x: .415789157, y: .124030977}
+      pivot: {x: 0.41578916, y: 0.12403098}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_31
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_31
       rect:
         serializedVersion: 2
         x: 643
@@ -139,9 +189,12 @@ TextureImporter:
         width: 81
         height: 128
       alignment: 9
-      pivot: {x: .364197522, y: .12499997}
+      pivot: {x: 0.36419752, y: 0.12499997}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_4
       rect:
         serializedVersion: 2
         x: 733
@@ -149,9 +202,12 @@ TextureImporter:
         width: 70
         height: 131
       alignment: 9
-      pivot: {x: .25003925, y: .129511267}
+      pivot: {x: 0.25003925, y: 0.12951127}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: object_mos_41
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: object_mos_41
       rect:
         serializedVersion: 2
         x: 811
@@ -159,8 +215,11 @@ TextureImporter:
         width: 75
         height: 131
       alignment: 9
-      pivot: {x: .219388023, y: .129047886}
+      pivot: {x: 0.21938802, y: 0.12904789}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: Game
   userData: 
   assetBundleName: 
