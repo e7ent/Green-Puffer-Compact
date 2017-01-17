@@ -14,18 +14,46 @@ namespace GreenPuffer.Quests
         {
             get
             {
-                return owner.Counter[descriptor.CounterKey] >= descriptor.Goal && !alreadyProvide;
+                return Complate && !AlreadyProvide;
+            }
+        }
+        public bool Complate
+        {
+            get
+            {
+                return owner.Counter[descriptor.CounterKey] >= descriptor.Goal;
+            }
+        }
+        public int CurrentValue
+        {
+            get
+            {
+                return owner.Counter[descriptor.CounterKey];
             }
         }
 
-        private bool alreadyProvide;
+        public int GoalValue
+        {
+            get
+            {
+                return descriptor.Goal;
+            }
+        }
+
+        public bool AlreadyProvide
+        {
+            get
+            {
+                return PlayerPrefs.GetInt(this.owner.Id + descriptor.Key, 0) == 1; ;
+            }
+        }
+
         private User owner;
         private QuestDescriptor descriptor;
 
         public Quest(User owner, QuestDescriptor descriptor)
         {
             this.owner = owner;
-            alreadyProvide = PlayerPrefs.GetInt(this.owner.Id + descriptor.Key, 0) == 1;
             this.descriptor = descriptor;
         }
 
@@ -37,6 +65,7 @@ namespace GreenPuffer.Quests
             }
             owner.TakeEffect(this);
             PlayerPrefs.SetInt(owner.Id + descriptor.Key, 1);
+            PlayerPrefs.Save();
             return true;
         }
 

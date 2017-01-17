@@ -1,9 +1,9 @@
 ﻿using Astro.Features.Effects;
-using Astro.Features.Quests;
 using GreenPuffer.Quests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace GreenPuffer.Accounts
 {
@@ -27,14 +27,16 @@ namespace GreenPuffer.Accounts
         public string Id { get { return "LocalUser"; } }
         public Counter Counter { get; private set; }
         public decimal Coin { get { return coinBankAccount.Balance; } }
-        public IEnumerable<Quest> InProgress { get { return questCollection; } }
-        public IEnumerable<Quest> Complated { get { return questCollection; } }
+        public IEnumerable<Quest> InProgress { get { return questCollection.Where(x => !x.AlreadyProvide); } }
+        public IEnumerable<Quest> Complated { get { return questCollection.Where(x => x.AlreadyProvide); } }
+        public CharacterCollection CharacterCollection { get; private set; }
         private QuestCollection questCollection;
         private CoinBankAccount coinBankAccount;
 
         public User()
         {
             Counter = new Counter(this);
+            CharacterCollection = new CharacterCollection(this);
             questCollection = new QuestCollection(this);
             coinBankAccount = new CoinBankAccount(this);
             coinBankAccount.PropertyChanged += (sender, args) =>

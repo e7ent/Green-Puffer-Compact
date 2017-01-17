@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using Astro.Features.Effects;
 using GreenPuffer.Characters;
 
-namespace GreenPuffer.Misc
+namespace GreenPuffer.Effectors
 {
-    class AbilityEffectorBase : MonoBehaviour, IAbilityEffector
+    class AbilityEffector : MonoBehaviour, IEffector<IAbilitiesModifier>
     {
         [SerializeField]
         private string triggingTag;
@@ -40,6 +41,14 @@ namespace GreenPuffer.Misc
         {
             Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
+
+            modifier.Hp += abilities.Hp;
+            modifier.MaxHp += abilities.MaxHp;
+            modifier.Exp += abilities.Exp;
+            modifier.Strength += abilities.Strength;
+            modifier.Armor += abilities.Armor;
+            modifier.Luck += abilities.Luck;
+            modifier.Speed += abilities.Speed;
         }
     }
 }

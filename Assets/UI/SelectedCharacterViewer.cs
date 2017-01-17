@@ -6,9 +6,30 @@ namespace GreenPuffer.UI
 {
     class SelectedCharacterViewer : MonoBehaviour
     {
-        private void Start()
+        private void Awake()
         {
-            var character = Instantiate(PlayerCharacter.Selected);
+            PlayerCharacter.SelectionChanged += OnSelectionChanged;
+            UpdateViewer();
+        }
+
+        private void OnDestroy()
+        {
+            PlayerCharacter.SelectionChanged -= OnSelectionChanged;
+        }
+
+        private void OnSelectionChanged(object sender, System.EventArgs e)
+        {
+            UpdateViewer();
+        }
+
+        private void UpdateViewer()
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            var character = Instantiate(PlayerCharacter.Selected, transform);
 
             var components = from component in character.GetComponents<Component>()
                              where !(component is Transform)

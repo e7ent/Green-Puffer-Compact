@@ -9,5 +9,10 @@ namespace GreenPuffer.Misc
         {
             SceneManager.LoadScene(sceneName);
         }
+
+        public void ResetPlayerPrefs()
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }

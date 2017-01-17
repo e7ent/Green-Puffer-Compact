@@ -7,6 +7,7 @@ namespace GreenPuffer.UI
 {
     class CharacterInfomationViewer : MonoBehaviour
     {
+        [SerializeField] private Canvas canvas;
         [SerializeField] private CharacterRankImage rankImage;
         [SerializeField] private Text nameText;
         [SerializeField] private Image thumbnailImage;
@@ -18,6 +19,7 @@ namespace GreenPuffer.UI
 
         public void Apply(PlayerCharacter playerCharacter)
         {
+            canvas.enabled = true;
             current = playerCharacter;
 
             var ability = current.Abilities;
@@ -30,7 +32,7 @@ namespace GreenPuffer.UI
             armorText.text = ability.Armor.ToString();
             maxHpText.text = ability.MaxHp.ToString();
             luckText.text = ability.Luck.ToString();
-            //force.text = pc.Force.ToString();
+            forceText.text = ability.Speed.ToString();
 
             descriptionText.text = current.Description;
 

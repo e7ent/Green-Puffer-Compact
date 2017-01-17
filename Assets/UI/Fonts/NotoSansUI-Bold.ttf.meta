@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5fc663e82515c114ea9dfc6ea5594a96
+timeCreated: 1484615629
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Noto Sans UI
+  fontNames:
+  - Noto Sans UI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fc8405b47f31a9645bdc70cf1cea22b0, type: 3}
+  customCharacters: "tjfaud\uC124\u3139\uBA85"
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

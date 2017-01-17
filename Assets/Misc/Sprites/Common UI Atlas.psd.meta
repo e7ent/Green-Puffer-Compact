@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8b6f30126fff15940ada61b8101eb02b
-timeCreated: 1432794782
+timeCreated: 1484614262
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -32,12 +32,14 @@ TextureImporter:
     21300050: Common UI Atlas Main Normal
     21300052: Common UI Atlas_0
     21300054: Common UI Atlas_1
-  serializedVersion: 2
+    21300056: Common UI Button_Green
+    21300058: Common UI Button_Red
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -45,14 +47,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 1024
@@ -63,21 +63,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: Common UI Atlas Panel 2
+    - serializedVersion: 2
+      name: Common UI Atlas Panel 2
       rect:
         serializedVersion: 2
         x: 1
@@ -85,9 +116,12 @@ TextureImporter:
         width: 156
         height: 152
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Simple Panel
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Simple Panel
       rect:
         serializedVersion: 2
         x: 161
@@ -95,9 +129,12 @@ TextureImporter:
         width: 48
         height: 49
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 22, y: 22, z: 22, w: 22}
-    - name: Common UI Atlas Close
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Close
       rect:
         serializedVersion: 2
         x: 222
@@ -105,9 +142,12 @@ TextureImporter:
         width: 76
         height: 80
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_3
       rect:
         serializedVersion: 2
         x: 310
@@ -115,9 +155,12 @@ TextureImporter:
         width: 68
         height: 68
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Settings
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Settings
       rect:
         serializedVersion: 2
         x: 385
@@ -125,9 +168,12 @@ TextureImporter:
         width: 72
         height: 71
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas X
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas X
       rect:
         serializedVersion: 2
         x: 168
@@ -135,9 +181,12 @@ TextureImporter:
         width: 36
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Coin
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Coin
       rect:
         serializedVersion: 2
         x: 315
@@ -145,9 +194,12 @@ TextureImporter:
         width: 71
         height: 72
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas New
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas New
       rect:
         serializedVersion: 2
         x: 392
@@ -155,9 +207,12 @@ TextureImporter:
         width: 80
         height: 28
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_8
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_8
       rect:
         serializedVersion: 2
         x: 1
@@ -165,9 +220,12 @@ TextureImporter:
         width: 120
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Panel
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Panel
       rect:
         serializedVersion: 2
         x: 185
@@ -175,9 +233,12 @@ TextureImporter:
         width: 68
         height: 88
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 33, y: 43, z: 33, w: 43}
-    - name: Common UI Atlas_10
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_10
       rect:
         serializedVersion: 2
         x: 410
@@ -185,9 +246,12 @@ TextureImporter:
         width: 36
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_11
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_11
       rect:
         serializedVersion: 2
         x: 454
@@ -195,9 +259,12 @@ TextureImporter:
         width: 28
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_12
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_12
       rect:
         serializedVersion: 2
         x: 129
@@ -205,9 +272,12 @@ TextureImporter:
         width: 36
         height: 60
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_13
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_13
       rect:
         serializedVersion: 2
         x: 261
@@ -215,9 +285,12 @@ TextureImporter:
         width: 56
         height: 68
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Medal
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Medal
       rect:
         serializedVersion: 2
         x: 340
@@ -225,9 +298,12 @@ TextureImporter:
         width: 45
         height: 65
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_15
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_15
       rect:
         serializedVersion: 2
         x: 421
@@ -235,9 +311,12 @@ TextureImporter:
         width: 36
         height: 27
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_16
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_16
       rect:
         serializedVersion: 2
         x: 1
@@ -245,9 +324,12 @@ TextureImporter:
         width: 120
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_17
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_17
       rect:
         serializedVersion: 2
         x: 424
@@ -255,9 +337,12 @@ TextureImporter:
         width: 30
         height: 18
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas OK
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas OK
       rect:
         serializedVersion: 2
         x: 4
@@ -265,9 +350,12 @@ TextureImporter:
         width: 171
         height: 80
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Yes
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Yes
       rect:
         serializedVersion: 2
         x: 1
@@ -275,9 +363,12 @@ TextureImporter:
         width: 172
         height: 80
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas No
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas No
       rect:
         serializedVersion: 2
         x: 176
@@ -285,9 +376,12 @@ TextureImporter:
         width: 172
         height: 80
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Share
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Share
       rect:
         serializedVersion: 2
         x: 4
@@ -295,9 +389,12 @@ TextureImporter:
         width: 96
         height: 72
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Medal PlaceHolder
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Medal PlaceHolder
       rect:
         serializedVersion: 2
         x: 340
@@ -305,9 +402,12 @@ TextureImporter:
         width: 45
         height: 65
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Panel 3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Panel 3
       rect:
         serializedVersion: 2
         x: 161
@@ -315,9 +415,12 @@ TextureImporter:
         width: 48
         height: 49
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 24, y: 23, z: 24, w: 24}
-    - name: Common UI Atlas Main Pressed
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Main Pressed
       rect:
         serializedVersion: 2
         x: 362
@@ -325,9 +428,12 @@ TextureImporter:
         width: 282
         height: 144
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas Main Normal
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas Main Normal
       rect:
         serializedVersion: 2
         x: 680
@@ -335,9 +441,12 @@ TextureImporter:
         width: 282
         height: 144
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_0
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_0
       rect:
         serializedVersion: 2
         x: 404
@@ -345,9 +454,12 @@ TextureImporter:
         width: 56
         height: 60
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Common UI Atlas_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Atlas_1
       rect:
         serializedVersion: 2
         x: 257
@@ -355,8 +467,37 @@ TextureImporter:
         width: 68
         height: 88
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 33, y: 43, z: 33, w: 43}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Common UI Button_Green
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 155
+        width: 87
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 20, y: 20, z: 20, w: 20}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Common UI Button_Red
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 155
+        width: 87
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 20, y: 20, z: 20, w: 20}
+      outline: []
+      tessellationDetail: 0
+    outline: []
   spritePackingTag: Game
   userData: 
   assetBundleName: 

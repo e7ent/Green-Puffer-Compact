@@ -40,6 +40,7 @@ namespace GreenPuffer.Accounts
                 PropertyChanged(this, new PropertyChangedEventArgs("Balance"));
             }
             PlayerPrefs.SetInt(user.Id + "Coin", (int)Balance);
+            PlayerPrefs.Save();
         }
     }
 }

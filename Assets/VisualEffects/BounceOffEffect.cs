@@ -6,8 +6,6 @@ namespace GreenPuffer.VisualEffects
     {
         [SerializeField]
         private string targetTag = "Creature";
-        [SerializeField]
-        private float force = 10;
 
         private new Rigidbody2D rigidbody;
 
@@ -22,7 +20,7 @@ namespace GreenPuffer.VisualEffects
                 return;
 
             Vector2 dir = transform.position - coll.transform.position;
-            rigidbody.AddForce(dir.normalized * force, ForceMode2D.Impulse);
+            rigidbody.AddForce(dir.normalized * coll.relativeVelocity.magnitude * .5f, ForceMode2D.Impulse);
         }
     }
 }

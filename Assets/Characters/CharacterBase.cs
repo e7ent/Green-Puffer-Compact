@@ -9,6 +9,7 @@ namespace GreenPuffer.Characters
         public event EventHandler Attacked;
         public event EventHandler Damaged;
         public event EventHandler Killed;
+        public event EventHandler Grown;
         public event EventHandler<AffectedEventArgs<IAbilitiesModifier>> Affected;
 
         [SerializeField]
@@ -19,6 +20,8 @@ namespace GreenPuffer.Characters
         [Header("Visual")]
         [SerializeField]
         protected bool facingReverse = false;
+        [SerializeField]
+        protected bool faceToDirection = true;
         protected bool alive;
         protected Animator animator;
         protected new Rigidbody2D rigidbody;
@@ -32,6 +35,19 @@ namespace GreenPuffer.Characters
             alive = true;
             rigidbody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            abilities.PropertyChanged += (sender, args) =>
+            {
+                if (args.PropertyName == "Exp")
+                {
+                    if (Abilities.Exp >= Abilities.MaxExp)
+                    {
+                        if (Grown != null)
+                        {
+                            Grown(this, EventArgs.Empty);
+                        }
+                    }
+                }
+            };
         }
 
         protected virtual void Update()
@@ -57,11 +73,16 @@ namespace GreenPuffer.Characters
             }
 
             // face to direction
-            if (Mathf.Abs(rigidbody.velocity.x) >= moveThreshold)
+            if (faceToDirection)
             {
-                Vector3 theScale = transform.localScale;
-                theScale.x = Mathf.Abs(theScale.x) * Mathf.Sign(rigidbody.velocity.x) * (facingReverse ? -1 : 1);
-                transform.localScale = theScale;
+                //var directionSource = rigidbody.velocity.x;
+                var directionSource = movement.x;
+                if (Mathf.Abs(directionSource) >= moveThreshold)
+                {
+                    Vector3 theScale = transform.localScale;
+                    theScale.x = Mathf.Abs(theScale.x) * Mathf.Sign(directionSource) * (facingReverse ? -1 : 1);
+                    transform.localScale = theScale;
+                }
             }
         }
 

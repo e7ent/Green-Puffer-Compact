@@ -76,12 +76,12 @@ TextureImporter:
     21300138: bluecrayfish_crapup_2
     21300140: hermitcrap_crap_1_3
     21300142: Warning
-  serializedVersion: 2
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
@@ -89,14 +89,12 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 8
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 512
@@ -107,21 +105,52 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 512
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: anchovy_fin_1
+    - serializedVersion: 2
+      name: anchovy_fin_1
       rect:
         serializedVersion: 2
         x: 1
@@ -131,7 +160,10 @@ TextureImporter:
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: snail_shell_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snail_shell_1
       rect:
         serializedVersion: 2
         x: 191
@@ -139,9 +171,12 @@ TextureImporter:
         width: 29
         height: 24
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: anchovy_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: anchovy_body_1
       rect:
         serializedVersion: 2
         x: 11
@@ -149,9 +184,12 @@ TextureImporter:
         width: 55
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: shrimp_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shrimp_body_1
       rect:
         serializedVersion: 2
         x: 95
@@ -159,9 +197,12 @@ TextureImporter:
         width: 34
         height: 11
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: shrimp_sw_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shrimp_sw_1
       rect:
         serializedVersion: 2
         x: 134
@@ -169,9 +210,12 @@ TextureImporter:
         width: 9
         height: 6
       alignment: 9
-      pivot: {x: .788889587, y: 1.0166651}
+      pivot: {x: 0.7888896, y: 1.0166651}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: shrimp_leg_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shrimp_leg_1
       rect:
         serializedVersion: 2
         x: 148
@@ -179,9 +223,12 @@ TextureImporter:
         width: 7
         height: 6
       alignment: 9
-      pivot: {x: .800000846, y: .866666138}
+      pivot: {x: 0.80000085, y: 0.86666614}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: shrimp_leg_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shrimp_leg_2
       rect:
         serializedVersion: 2
         x: 161
@@ -189,9 +236,12 @@ TextureImporter:
         width: 7
         height: 5
       alignment: 9
-      pivot: {x: .142857149, y: .779998779}
+      pivot: {x: 0.14285715, y: 0.7799988}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: shrimp_fin_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: shrimp_fin_1
       rect:
         serializedVersion: 2
         x: 174
@@ -199,9 +249,12 @@ TextureImporter:
         width: 8
         height: 6
       alignment: 4
-      pivot: {x: 0, y: .5}
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: snail_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: snail_body_1
       rect:
         serializedVersion: 2
         x: 226
@@ -209,9 +262,12 @@ TextureImporter:
         width: 34
         height: 11
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wiggler_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: wiggler_3
       rect:
         serializedVersion: 2
         x: 80
@@ -219,9 +275,12 @@ TextureImporter:
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_eye_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_eye_1
       rect:
         serializedVersion: 2
         x: 14
@@ -229,9 +288,12 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_iris_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_iris_1
       rect:
         serializedVersion: 2
         x: 30
@@ -239,9 +301,12 @@ TextureImporter:
         width: 4
         height: 4
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: clam_up_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: clam_up_2
       rect:
         serializedVersion: 2
         x: 244
@@ -249,9 +314,12 @@ TextureImporter:
         width: 47
         height: 24
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_body_1
       rect:
         serializedVersion: 2
         x: 7
@@ -259,9 +327,12 @@ TextureImporter:
         width: 78
         height: 25
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: clam_pearl_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: clam_pearl_1
       rect:
         serializedVersion: 2
         x: 160
@@ -269,9 +340,12 @@ TextureImporter:
         width: 17
         height: 17
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: clam_down_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: clam_down_1
       rect:
         serializedVersion: 2
         x: 191
@@ -279,9 +353,12 @@ TextureImporter:
         width: 47
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: clam_up_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: clam_up_1
       rect:
         serializedVersion: 2
         x: 244
@@ -289,9 +366,12 @@ TextureImporter:
         width: 47
         height: 24
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: clam_in_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: clam_in_1
       rect:
         serializedVersion: 2
         x: 154
@@ -299,9 +379,12 @@ TextureImporter:
         width: 29
         height: 7
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: harmitcrap_shell_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: harmitcrap_shell_1
       rect:
         serializedVersion: 2
         x: 2
@@ -309,9 +392,12 @@ TextureImporter:
         width: 111
         height: 65
       alignment: 9
-      pivot: {x: .729334772, y: .364973098}
+      pivot: {x: 0.7293348, y: 0.3649731}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_crap_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_crap_2
       rect:
         serializedVersion: 2
         x: 146
@@ -319,9 +405,12 @@ TextureImporter:
         width: 21
         height: 29
       alignment: 9
-      pivot: {x: .134630471, y: .67638582}
+      pivot: {x: 0.13463047, y: 0.6763858}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_crap_1_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_crap_1_1
       rect:
         serializedVersion: 2
         x: 178
@@ -329,9 +418,12 @@ TextureImporter:
         width: 20
         height: 11
       alignment: 4
-      pivot: {x: 0, y: .5}
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_crap_1_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_crap_1_2
       rect:
         serializedVersion: 2
         x: 206
@@ -339,9 +431,12 @@ TextureImporter:
         width: 41
         height: 17
       alignment: 9
-      pivot: {x: .0421637557, y: .665628791}
+      pivot: {x: 0.042163756, y: 0.6656288}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_eye_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_eye_1
       rect:
         serializedVersion: 2
         x: 263
@@ -349,9 +444,12 @@ TextureImporter:
         width: 17
         height: 9
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_leg_1_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_leg_1_1
       rect:
         serializedVersion: 2
         x: 117
@@ -359,9 +457,12 @@ TextureImporter:
         width: 22
         height: 57
       alignment: 9
-      pivot: {x: .86426264, y: .709393442}
+      pivot: {x: 0.86426264, y: 0.70939344}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_leg_2_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_leg_2_1
       rect:
         serializedVersion: 2
         x: 150
@@ -369,9 +470,12 @@ TextureImporter:
         width: 14
         height: 39
       alignment: 9
-      pivot: {x: .731401742, y: .919706881}
+      pivot: {x: 0.73140174, y: 0.9197069}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_leg_2_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_leg_2_2
       rect:
         serializedVersion: 2
         x: 180
@@ -379,9 +483,12 @@ TextureImporter:
         width: 16
         height: 34
       alignment: 9
-      pivot: {x: .158988953, y: .876116157}
+      pivot: {x: 0.15898895, y: 0.87611616}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_leg_1_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_leg_1_2
       rect:
         serializedVersion: 2
         x: 200
@@ -389,9 +496,12 @@ TextureImporter:
         width: 26
         height: 50
       alignment: 9
-      pivot: {x: .132996783, y: .612627387}
+      pivot: {x: 0.13299678, y: 0.6126274}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_body_1
       rect:
         serializedVersion: 2
         x: 234
@@ -399,9 +509,12 @@ TextureImporter:
         width: 38
         height: 39
       alignment: 9
-      pivot: {x: .118421055, y: .110256292}
+      pivot: {x: 0.118421055, y: 0.11025629}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_eye_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_eye_1
       rect:
         serializedVersion: 2
         x: 3
@@ -409,9 +522,12 @@ TextureImporter:
         width: 6
         height: 5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_body_1
       rect:
         serializedVersion: 2
         x: 11
@@ -419,9 +535,12 @@ TextureImporter:
         width: 85
         height: 52
       alignment: 9
-      pivot: {x: .982763827, y: .331108153}
+      pivot: {x: 0.9827638, y: 0.33110815}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_legdown_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_legdown_1
       rect:
         serializedVersion: 2
         x: 236
@@ -429,9 +548,12 @@ TextureImporter:
         width: 26
         height: 29
       alignment: 9
-      pivot: {x: .954262376, y: .646199167}
+      pivot: {x: 0.9542624, y: 0.64619917}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_legdown_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_legdown_2
       rect:
         serializedVersion: 2
         x: 268
@@ -439,9 +561,12 @@ TextureImporter:
         width: 15
         height: 28
       alignment: 9
-      pivot: {x: .156781003, y: .667644203}
+      pivot: {x: 0.156781, y: 0.6676442}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_legup_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_legup_1
       rect:
         serializedVersion: 2
         x: 115
@@ -449,9 +574,12 @@ TextureImporter:
         width: 15
         height: 28
       alignment: 9
-      pivot: {x: .857352316, y: .620092213}
+      pivot: {x: 0.8573523, y: 0.6200922}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_legup_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_legup_3
       rect:
         serializedVersion: 2
         x: 161
@@ -459,9 +587,12 @@ TextureImporter:
         width: 15
         height: 28
       alignment: 9
-      pivot: {x: .166875198, y: .656828463}
+      pivot: {x: 0.1668752, y: 0.65682846}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_tail_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_tail_1
       rect:
         serializedVersion: 2
         x: 185
@@ -469,9 +600,12 @@ TextureImporter:
         width: 73
         height: 33
       alignment: 9
-      pivot: {x: .0996693671, y: .72483629}
+      pivot: {x: 0.09966937, y: 0.7248363}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_crapup_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_crapup_1
       rect:
         serializedVersion: 2
         x: 5
@@ -479,9 +613,12 @@ TextureImporter:
         width: 38
         height: 28
       alignment: 9
-      pivot: {x: .953282177, y: .905111194}
+      pivot: {x: 0.9532822, y: 0.9051112}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_crapup_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_crapup_2
       rect:
         serializedVersion: 2
         x: 58
@@ -489,9 +626,12 @@ TextureImporter:
         width: 10
         height: 11
       alignment: 9
-      pivot: {x: .836091638, y: .108527966}
+      pivot: {x: 0.83609164, y: 0.108527966}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_crapdown_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_crapdown_1
       rect:
         serializedVersion: 2
         x: 89
@@ -499,9 +639,12 @@ TextureImporter:
         width: 42
         height: 28
       alignment: 9
-      pivot: {x: .93080467, y: .464347214}
+      pivot: {x: 0.93080467, y: 0.4643472}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: anchovy_eye_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: anchovy_eye_1
       rect:
         serializedVersion: 2
         x: 13
@@ -509,9 +652,12 @@ TextureImporter:
         width: 3
         height: 3
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: anchovy_fin_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: anchovy_fin_3
       rect:
         serializedVersion: 2
         x: 61
@@ -519,9 +665,12 @@ TextureImporter:
         width: 13
         height: 9
       alignment: 4
-      pivot: {x: 0, y: .5}
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wiggler_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: wiggler_1
       rect:
         serializedVersion: 2
         x: 82
@@ -529,9 +678,12 @@ TextureImporter:
         width: 2
         height: 5
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: wiggler_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: wiggler_2
       rect:
         serializedVersion: 2
         x: 80
@@ -539,9 +691,12 @@ TextureImporter:
         width: 6
         height: 3
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_fin_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_fin_3
       rect:
         serializedVersion: 2
         x: 142
@@ -551,7 +706,10 @@ TextureImporter:
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_fin_4
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_fin_4
       rect:
         serializedVersion: 2
         x: 91
@@ -559,9 +717,12 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 9
-      pivot: {x: .0428572148, y: .438095093}
+      pivot: {x: 0.042857215, y: 0.4380951}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: anchovy_fin_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: anchovy_fin_2
       rect:
         serializedVersion: 2
         x: 19
@@ -569,9 +730,12 @@ TextureImporter:
         width: 8
         height: 4
       alignment: 9
-      pivot: {x: .175000191, y: .775001526}
+      pivot: {x: 0.17500019, y: 0.7750015}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_fin_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_fin_1
       rect:
         serializedVersion: 2
         x: 45
@@ -579,9 +743,12 @@ TextureImporter:
         width: 25
         height: 16
       alignment: 9
-      pivot: {x: .0600001514, y: .118749619}
+      pivot: {x: 0.06000015, y: 0.11874962}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_fin_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_fin_2
       rect:
         serializedVersion: 2
         x: 25
@@ -589,9 +756,12 @@ TextureImporter:
         width: 11
         height: 11
       alignment: 4
-      pivot: {x: 0, y: .5}
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: squid_eye_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: squid_eye_1
       rect:
         serializedVersion: 2
         x: 219
@@ -599,9 +769,12 @@ TextureImporter:
         width: 9
         height: 1
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: squid_body_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: squid_body_1
       rect:
         serializedVersion: 2
         x: 155
@@ -609,9 +782,12 @@ TextureImporter:
         width: 23
         height: 22
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: squid_body_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: squid_body_2
       rect:
         serializedVersion: 2
         x: 186
@@ -619,9 +795,12 @@ TextureImporter:
         width: 23
         height: 14
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: squid_mouth_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: squid_mouth_1
       rect:
         serializedVersion: 2
         x: 221
@@ -629,9 +808,12 @@ TextureImporter:
         width: 3
         height: 3
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: anchovy_eye_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: anchovy_eye_2
       rect:
         serializedVersion: 2
         x: 13
@@ -639,9 +821,12 @@ TextureImporter:
         width: 3
         height: 3
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: guppy_eye_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: guppy_eye_2
       rect:
         serializedVersion: 2
         x: 5
@@ -649,9 +834,12 @@ TextureImporter:
         width: 5
         height: 5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: squid_eye_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: squid_eye_2
       rect:
         serializedVersion: 2
         x: 237
@@ -659,9 +847,12 @@ TextureImporter:
         width: 10
         height: 3
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_crapup_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_crapup_3
       rect:
         serializedVersion: 2
         x: 1
@@ -671,7 +862,10 @@ TextureImporter:
       alignment: 3
       pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: hermitcrap_crap_1_3
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: hermitcrap_crap_1_3
       rect:
         serializedVersion: 2
         x: 196
@@ -681,7 +875,10 @@ TextureImporter:
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_legup_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_legup_2
       rect:
         serializedVersion: 2
         x: 136
@@ -689,9 +886,12 @@ TextureImporter:
         width: 15
         height: 28
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: harmitcrap_eye_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: harmitcrap_eye_2
       rect:
         serializedVersion: 2
         x: 270
@@ -699,9 +899,12 @@ TextureImporter:
         width: 17
         height: 7
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: bluecrayfish_eye_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: bluecrayfish_eye_2
       rect:
         serializedVersion: 2
         x: 258
@@ -709,9 +912,12 @@ TextureImporter:
         width: 5
         height: 5
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Warning
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: Warning
       rect:
         serializedVersion: 2
         x: 0
@@ -719,8 +925,11 @@ TextureImporter:
         width: 15
         height: 39
       alignment: 9
-      pivot: {x: .478267699, y: .307753354}
+      pivot: {x: 0.4782677, y: 0.30775335}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: Game
   userData: 
   assetBundleName: 

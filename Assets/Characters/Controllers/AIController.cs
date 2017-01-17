@@ -47,7 +47,6 @@ namespace GreenPuffer.Characters.Controllers
 
             //character.TargetEnter += OnTargetEnter;
             //character.TargetLeave += OnTargetLeave;
-            character.Killed += OnKilled;
         }
 
         private void Start()
@@ -206,11 +205,6 @@ namespace GreenPuffer.Characters.Controllers
                 target.TakeDamage(character.Abilities.Strength);
             else
                 character.TakeDamage(target.Abilities.Strength);
-        }
-
-        private void OnKilled(object sender, EventArgs args)
-        {
-            character.Kill();
         }
     }
 }

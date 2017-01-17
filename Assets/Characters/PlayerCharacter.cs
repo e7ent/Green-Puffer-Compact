@@ -1,9 +1,14 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using GreenPuffer.Accounts;
+using System;
+using UnityEngine;
 
 namespace GreenPuffer.Characters
 {
+    using Astro.Features.Effects;
+    using DG.Tweening;
+    using System.ComponentModel;
+    using UnityEngine.SceneManagement;
+    using URandom = UnityEngine.Random;
     sealed class PlayerCharacter : CharacterBase
     {
         public enum StateType
@@ -38,6 +43,8 @@ namespace GreenPuffer.Characters
         private string description;
         [SerializeField]
         private Sprite thumbnail;
+        [SerializeField]
+        private PlayerCharacter[] nextCharacters;
         [Header("Animator")]
         [SerializeField]
         private Animator eye;
@@ -50,6 +57,8 @@ namespace GreenPuffer.Characters
         [SerializeField]
         private Animator fin;
 
+        private Vector2 originScale;
+
         public string NickName { get { return nickName; } }
         public string Description { get { return description; } }
         public Sprite Thumbnail { get { return thumbnail; } }
@@ -61,12 +70,39 @@ namespace GreenPuffer.Characters
             base.Awake();
             currentState = StateType.Normal;
             animator = null;
+            if (Playing == null)
+            {
+                Playing = this;
+            }
+            originScale = transform.localScale;
+            Abilities.PropertyChanged += OnAbilitiesPropertyChanged;
+            Grown += OnGrown;
         }
 
+        private void OnAbilitiesPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Exp")
+            {
+                transform.DOComplete(true);
+                var scale = originScale;
+                scale += Vector2.one * (Abilities.Exp / Abilities.MaxExp);
+                transform.localScale = scale;
+            }
+        }
+
+        private void OnGrown(object sender, EventArgs e)
+        {
+            if (nextCharacters.Length <= 0)
+                return;
+            var prefab = nextCharacters[URandom.Range(0, nextCharacters.Length)];
+            Selected = prefab;
+            User.LocalUser.CharacterCollection.Unlock(prefab);
+            SceneManager.LoadScene("Game");
+        }
 
         protected override void Update()
         {
-            //Abilities.Hp -= Time.deltaTime;
+            abilities.Hp -= Time.deltaTime;
 
             fin.speed = Mathf.Clamp(rigidbody.velocity.sqrMagnitude * 5.0f, 0.5f, 2);
 
@@ -96,10 +132,10 @@ namespace GreenPuffer.Characters
             //    transform.localScale = theScale;
             //}
 
-            //// sync rotation
-            //var direction = Mathf.Sign(transform.localScale.x);
-            //var rotation = Quaternion.AngleAxis(rigidbody.velocity.y * 10 * direction, transform.forward);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+            // sync rotation
+            var direction = Mathf.Sign(transform.localScale.x);
+            var rotation = Quaternion.AngleAxis(rigidbody.velocity.y * 10 * direction, transform.forward);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
         }
 
         //public void Feed(float addHP, float addSize)
@@ -138,6 +174,8 @@ namespace GreenPuffer.Characters
         }
 
         #region Statics
+
+        public static event EventHandler SelectionChanged;
         public static PlayerCharacter Selected
         {
             get
@@ -153,8 +191,15 @@ namespace GreenPuffer.Characters
             set
             {
                 PlayerPrefs.SetString("SelectedPlayerCharacter", value.name);
+                PlayerPrefs.Save();
+                if (SelectionChanged != null)
+                {
+                    SelectionChanged(null, EventArgs.Empty);
+                }
             }
         }
+
+        public static PlayerCharacter Playing { get; private set; }
         #endregion
     }
 }

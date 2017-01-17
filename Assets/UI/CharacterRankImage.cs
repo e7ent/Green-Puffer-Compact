@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 namespace GreenPuffer.UI
 {
-    public class CharacterRankImage : Image
+    public class CharacterRankImage : MonoBehaviour
     {
+        [SerializeField]
+        private Image image;
         [SerializeField]
         private Sprite[] sprites;
         private CharacterRank rank;
@@ -19,13 +21,12 @@ namespace GreenPuffer.UI
             set
             {
                 rank = value;
-                sprite = sprites[(int)rank];
+                image.sprite = sprites[(int)rank];
             }
         }
 
-        protected override void Awake()
+        protected void Awake()
         {
-            base.Awake();
             Rank = rank;
         }
     }

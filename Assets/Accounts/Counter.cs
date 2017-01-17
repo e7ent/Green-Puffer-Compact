@@ -12,7 +12,12 @@ namespace GreenPuffer.Accounts
         public int this[string index]
         {
             get { return PlayerPrefs.GetInt(user.Id + index, 0); }
-            set { PlayerPrefs.SetInt(user.Id + index, value); InvokeCounted(index, value); }
+            set
+            {
+                PlayerPrefs.SetInt(user.Id + index, value);
+                PlayerPrefs.Save();
+                InvokeCounted(index, value);
+            }
         }
 
         public Counter(User user)

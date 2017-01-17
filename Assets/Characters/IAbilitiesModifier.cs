@@ -2,11 +2,12 @@
 {
     public interface IAbilitiesModifier
     {
-        float Hp { set; }
-        float MaxHp { set; }
-        float Strength { set; }
-        float Armor { set; }
-        float Luck { set; }
-        float Speed { set; }
+        float Hp { get; set; }
+        float MaxHp { get; set; }
+        float Exp { get; set; }
+        float Strength { get; set; }
+        float Armor { get; set; }
+        float Luck { get; set; }
+        float Speed { get; set; }
     }
 }
