@@ -1,20 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace GreenPuffer.Misc
 {
     public class Remover : MonoBehaviour
     {
         [SerializeField]
-        private string ignoreTag;
-        [SerializeField]
         private Camera mainCamera;
         [SerializeField]
+        private List<string> detectingTags;
         private BoxCollider2D dectectingCollider;
 
         private int width, height;
 
         private void Update()
         {
+            if (dectectingCollider == null)
+            {
+                dectectingCollider = gameObject.AddComponent<BoxCollider2D>();
+                dectectingCollider.isTrigger = true;
+            }
+
             if (width == Screen.width && height == Screen.height)
                 return;
 
@@ -25,7 +31,7 @@ namespace GreenPuffer.Misc
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag(ignoreTag))
+            if (!detectingTags.Contains(other.tag))
                 return;
 
             Destroy(other.gameObject);

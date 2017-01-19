@@ -86,6 +86,7 @@ namespace GreenPuffer.Characters
                 transform.DOComplete(true);
                 var scale = originScale;
                 scale += Vector2.one * (Abilities.Exp / Abilities.MaxExp);
+                scale.x *= Mathf.Sign(transform.localScale.x);
                 transform.localScale = scale;
             }
         }

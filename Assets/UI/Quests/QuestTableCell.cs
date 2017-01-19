@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace GreenPuffer.UI
 {
 #pragma warning disable 0649
-    class QuestListCell : MonoBehaviour
+    class QuestTableCell : TableCell
     {
         [SerializeField]
         private Image icon;
@@ -16,9 +16,16 @@ namespace GreenPuffer.UI
 
         private Quest quest;
 
-        public void Setup(Quest quest)
+        public void OnButtonClicked()
         {
-            this.quest = quest;
+            quest.TryProvideReward();
+            rewardButton.interactable = !quest.AlreadyProvide;
+        }
+
+        public override void Load(object data)
+        {
+            quest = data as Quest;
+
             var descriptor = quest.Descriptor;
             icon.sprite = descriptor.Icon;
             title.text = descriptor.Title;
@@ -26,12 +33,6 @@ namespace GreenPuffer.UI
             rewardText.text = descriptor.RewardCoin + " Coin";
             progressText.text = quest.CurrentValue + "/" + quest.GoalValue;
             rewardButton.gameObject.SetActive(quest.Complate);
-            rewardButton.interactable = !quest.AlreadyProvide;
-        }
-
-        public void OnButtonClicked()
-        {
-            quest.TryProvideReward();
             rewardButton.interactable = !quest.AlreadyProvide;
         }
     }

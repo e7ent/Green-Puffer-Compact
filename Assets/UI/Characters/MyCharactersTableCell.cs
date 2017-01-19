@@ -1,11 +1,12 @@
-﻿using GreenPuffer.Characters;
+﻿using System;
+using GreenPuffer.Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace GreenPuffer.UI
 {
 
-    class MyCharacterListCell : MonoBehaviour
+    class MyCharactersTableCell : TableCell
     {
         [SerializeField]
         private Text nameText;
@@ -29,6 +30,14 @@ namespace GreenPuffer.UI
         public void OnClicked()
         {
             viewer.Apply(character);
+        }
+
+        public override void Load(object data)
+        {
+            character = data as PlayerCharacter;
+            nameText.text = character.NickName;
+            rankImage.Rank = character.Abilities.Rank;
+            thumbnail.sprite = character.Thumbnail;
         }
     }
 }

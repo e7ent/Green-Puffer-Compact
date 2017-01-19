@@ -47,7 +47,12 @@ namespace GreenPuffer.Inputs.Joysticks
 
         private void Awake()
         {
+#if !MOBILE_INPUT
+            Destroy(gameObject);
+#endif
             CreateVirtualAxes();
+
+            Input.simulateMouseWithTouches = true;
 
             imageOrinalSize = targetImage.rectTransform.sizeDelta;
             imageOrinalPivot = targetImage.rectTransform.pivot;
