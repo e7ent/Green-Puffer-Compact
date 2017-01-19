@@ -30,7 +30,6 @@ Thumbs.db.meta
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -48,3 +47,13 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Visual Studio 2015 cache/options directory
+.vs/
