@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using GreenPuffer.Accounts;
+using System.Linq;
 using UnityEngine;
-using GreenPuffer.Characters;
 
 namespace GreenPuffer.UI
 {
@@ -8,18 +8,18 @@ namespace GreenPuffer.UI
     {
         private void Awake()
         {
-            PlayerCharacter.SelectionChanged += OnSelectionChanged;
+            Users.LocalUser.PropertyChanged += OnSelectionChanged;
+            UpdateViewer();
+        }
+
+        private void OnSelectionChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
             UpdateViewer();
         }
 
         private void OnDestroy()
         {
-            PlayerCharacter.SelectionChanged -= OnSelectionChanged;
-        }
-
-        private void OnSelectionChanged(object sender, System.EventArgs e)
-        {
-            UpdateViewer();
+            Users.LocalUser.PropertyChanged -= OnSelectionChanged;
         }
 
         private void UpdateViewer()
@@ -29,7 +29,7 @@ namespace GreenPuffer.UI
                 Destroy(child.gameObject);
             }
 
-            var character = Instantiate(PlayerCharacter.Selected, transform);
+            var character = Instantiate(Users.LocalUser.SelectedCharacter, transform);
 
             var components = from component in character.GetComponents<Component>()
                              where !(component is Transform)

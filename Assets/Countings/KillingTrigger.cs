@@ -19,7 +19,7 @@ namespace GreenPuffer.Misc
 
         private void OnKilled(object sender, EventArgs e)
         {
-            User.LocalUser.Counter[key]++;
+            Users.LocalUser.Counter[key]++;
         }
     }
 }

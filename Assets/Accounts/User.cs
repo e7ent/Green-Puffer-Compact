@@ -1,48 +1,45 @@
-﻿using Astro.Features.Effects;
-using GreenPuffer.Quests;
-using System;
+﻿using GreenPuffer.Characters;
+using GreenPuffer.Misc;
+using GreenPuffer.Synthesis;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System;
 
 namespace GreenPuffer.Accounts
 {
-    class User : INotifyPropertyChanged, IAffectable<CoinBankAccount>
+    class User : INotifyPropertyChanged
     {
-        private static User localUser;
-        public static User LocalUser
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Id { get { return "LocalUser"; } }
+        // IAffectable or Transaction을 쓰지 않는 이유
+        // 1. setter는 Server측에서만 제공하면 된다.
+        // 2. 오프라인게임에서도 복잡도만 증가시킨다.
+        public int Coin { get { return GetProperty<int>("Coin"); } set { SetProperty("Coin", value); } }
+        public int BestScore { get { return GetProperty<int>("BestScore"); } set { SetProperty("BestScore", value); } }
+        public Counter Counter { get; private set; }
+        public QuestManager QuestManager { get; private set; }
+        public IEnumerable<PlayerCharacter> Characters { get { return _characters; } }
+        public PlayerCharacter SelectedCharacter
         {
             get
             {
-                if (localUser == null)
-                {
-                    localUser = new User();
-                }
-                return localUser;
+                var id = GetProperty("SelectedCharacter", "Baby");
+                return CharacterDatabase.GetPlayerCharactersById(id);
             }
+            set { SetProperty("SelectedCharacter", value.name); }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler<AffectedEventArgs<CoinBankAccount>> Affected;
 
-        public string Id { get { return "LocalUser"; } }
-        public Counter Counter { get; private set; }
-        public decimal Coin { get { return coinBankAccount.Balance; } }
-        public IEnumerable<Quest> InProgress { get { return questCollection.Where(x => !x.AlreadyProvide); } }
-        public IEnumerable<Quest> Complated { get { return questCollection.Where(x => x.AlreadyProvide); } }
-        public CharacterCollection CharacterCollection { get; private set; }
-        private QuestCollection questCollection;
-        private CoinBankAccount coinBankAccount;
+        private List<PlayerCharacter> _characters;
 
         public User()
         {
             Counter = new Counter(this);
-            CharacterCollection = new CharacterCollection(this);
-            questCollection = new QuestCollection(this);
-            coinBankAccount = new CoinBankAccount(this);
-            coinBankAccount.PropertyChanged += (sender, args) =>
-            {
-                InvokePropertyChanged("Coin");
-            };
+            QuestManager = new QuestManager(this);
+
+            var ids = GetProperty("Characters", new string[] { "Baby" });
+            _characters = new List<PlayerCharacter>(ids.Select(x => CharacterDatabase.GetPlayerCharactersById(x)));
         }
 
         private void InvokePropertyChanged(string name)
@@ -53,13 +50,34 @@ namespace GreenPuffer.Accounts
             }
         }
 
-        public void TakeEffect(IEffector<CoinBankAccount> effector)
+        public void CreateCharacter(PlayerCharacter prefab)
         {
-            effector.Affect(coinBankAccount);
-            if (Affected != null)
-            {
-                Affected(this, new AffectedEventArgs<CoinBankAccount>(effector));
-            }
+            _characters.Add(prefab);
+            SetProperty("Characters", _characters.Select(x => x.name).ToArray());
+            InvokePropertyChanged("Characters");
+        }
+
+        public void RemoveCharacter(PlayerCharacter prefab)
+        {
+            _characters.Remove(prefab);
+            SetProperty("Characters", _characters.Select(x => x.name).ToArray());
+            InvokePropertyChanged("Characters");
+        }
+
+        public Synthesizer CreateSynthesizer()
+        {
+            return new Synthesizer(this);
+        }
+
+        private T GetProperty<T>(string name, T defaultValue = default(T))
+        {
+            return Storage.Load(Id + name, defaultValue);
+        }
+
+        private void SetProperty(string name, object value)
+        {
+            Storage.Save(Id + name, value);
+            InvokePropertyChanged(name);
         }
     }
 }

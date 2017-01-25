@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using E7Assets;
-using GreenPuffer.Characters;
+﻿using GreenPuffer.Characters;
+using GreenPuffer.Misc;
 using System;
+using UnityEngine;
 
 namespace GreenPuffer.VisualEffects
 {

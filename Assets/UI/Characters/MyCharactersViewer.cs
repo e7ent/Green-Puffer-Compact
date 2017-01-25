@@ -1,4 +1,5 @@
 ﻿using GreenPuffer.Accounts;
+using System.ComponentModel;
 using UnityEngine;
 
 namespace GreenPuffer.UI
@@ -10,22 +11,25 @@ namespace GreenPuffer.UI
 
         private void Awake()
         {
-            User.LocalUser.CharacterCollection.Unlocked += OnUnlocked;
-        }
-
-        private void OnUnlocked(object sender, System.EventArgs e)
-        {
-            OnEnable();
-        }
-
-        private void OnDestroy()
-        {
-            User.LocalUser.CharacterCollection.Unlocked -= OnUnlocked;
+            Users.LocalUser.PropertyChanged += OnPropertyChanged;
         }
 
         private void OnEnable()
         {
-            table.Reload(User.LocalUser.CharacterCollection.UnlockedCharacters);
+            table.Reload(Users.LocalUser.Characters);
+        }
+
+        private void OnDestroy()
+        {
+            Users.LocalUser.PropertyChanged -= OnPropertyChanged;
+        }
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Characters")
+            {
+                OnEnable();
+            }
         }
     }
 }

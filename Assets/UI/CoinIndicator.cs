@@ -12,13 +12,13 @@ namespace GreenPuffer.UI
 
         private void Awake()
         {
-            User.LocalUser.PropertyChanged += OnUserPropertyChanged;
+            Users.LocalUser.PropertyChanged += OnUserPropertyChanged;
             UpdateUI();
         }
 
         private void OnDestroy()
         {
-            User.LocalUser.PropertyChanged -= OnUserPropertyChanged;
+            Users.LocalUser.PropertyChanged -= OnUserPropertyChanged;
         }
 
         private void OnUserPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -31,7 +31,7 @@ namespace GreenPuffer.UI
 
         private void UpdateUI()
         {
-            coinText.text = User.LocalUser.Coin.ToString("#,##0");
+            coinText.text = Users.LocalUser.Coin.ToString("#,##0");
         }
     }
 }

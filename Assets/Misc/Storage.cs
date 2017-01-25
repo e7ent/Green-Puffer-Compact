@@ -30,5 +30,15 @@ namespace GreenPuffer.Misc
                 return (T)formatter.Deserialize(stream);
             }
         }
+
+        public static T Load<T>(string key, T defaultValue)
+        {
+            var value = Load<T>(key);
+            if (value == null)
+            {
+                return defaultValue;
+            }
+            return value;
+        }
     }
 }

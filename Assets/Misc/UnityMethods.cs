@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GreenPuffer.Accounts;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace GreenPuffer.Misc
@@ -13,6 +14,12 @@ namespace GreenPuffer.Misc
         public void ResetPlayerPrefs()
         {
             PlayerPrefs.DeleteAll();
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
+        public void AddCoin(int amount)
+        {
+            Users.LocalUser.Coin += amount;
         }
     }
 }

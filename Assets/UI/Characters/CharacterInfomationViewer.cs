@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using GreenPuffer.Characters;
+using GreenPuffer.Accounts;
 
 #pragma warning disable 0649
 namespace GreenPuffer.UI
@@ -36,13 +37,13 @@ namespace GreenPuffer.UI
 
             descriptionText.text = current.Description;
 
-            selectButton.interactable = PlayerCharacter.Selected != current;
+            selectButton.interactable = Users.LocalUser.SelectedCharacter != current;
         }
 
         public void Select()
         {
-            PlayerCharacter.Selected = current;
-            selectButton.interactable = PlayerCharacter.Selected != current;
+            Users.LocalUser.SelectedCharacter = current;
+            selectButton.interactable = false;
         }
     }
 }

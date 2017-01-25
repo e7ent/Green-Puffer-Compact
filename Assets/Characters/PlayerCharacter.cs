@@ -1,13 +1,13 @@
-﻿using GreenPuffer.Accounts;
+﻿using DG.Tweening;
+using GreenPuffer.Accounts;
 using System;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GreenPuffer.Characters
 {
-    using Astro.Features.Effects;
-    using DG.Tweening;
-    using System.ComponentModel;
-    using UnityEngine.SceneManagement;
+    using Misc;
     using URandom = UnityEngine.Random;
     sealed class PlayerCharacter : CharacterBase
     {
@@ -96,14 +96,15 @@ namespace GreenPuffer.Characters
             if (nextCharacters.Length <= 0)
                 return;
             var prefab = nextCharacters[URandom.Range(0, nextCharacters.Length)];
-            Selected = prefab;
-            User.LocalUser.CharacterCollection.Unlock(prefab);
+            Users.LocalUser.SelectedCharacter = prefab;
+            Users.LocalUser.CreateCharacter(prefab);
+            GameInitializer._prevScoreKeeper = GameManager.Instance.ScoreKeeper;
             SceneManager.LoadScene("Game");
         }
 
         protected override void Update()
         {
-            abilities.Hp -= Time.deltaTime;
+            TakeDamage(Time.deltaTime + Abilities.Armor);
 
             fin.speed = Mathf.Clamp(rigidbody.velocity.sqrMagnitude * 5.0f, 0.5f, 2);
 
@@ -175,31 +176,6 @@ namespace GreenPuffer.Characters
         }
 
         #region Statics
-
-        public static event EventHandler SelectionChanged;
-        public static PlayerCharacter Selected
-        {
-            get
-            {
-                var stored = PlayerPrefs.GetString("SelectedPlayerCharacter");
-                if (string.IsNullOrEmpty(stored))
-                {
-                    stored = "Baby";
-                }
-                return Resources.Load<PlayerCharacter>("PlayerCharacters/" + stored);
-            }
-
-            set
-            {
-                PlayerPrefs.SetString("SelectedPlayerCharacter", value.name);
-                PlayerPrefs.Save();
-                if (SelectionChanged != null)
-                {
-                    SelectionChanged(null, EventArgs.Empty);
-                }
-            }
-        }
-
         public static PlayerCharacter Playing { get; private set; }
         #endregion
     }

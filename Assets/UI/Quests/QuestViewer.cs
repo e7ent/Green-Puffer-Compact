@@ -14,9 +14,9 @@ namespace GreenPuffer.UI
         {
             get
             {
-                foreach (var item in User.LocalUser.InProgress)
+                foreach (var item in Users.LocalUser.QuestManager.InProgress)
                     yield return item;
-                foreach (var item in User.LocalUser.Complated)
+                foreach (var item in Users.LocalUser.QuestManager.Complated)
                     yield return item;
             }
         }

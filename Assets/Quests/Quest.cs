@@ -1,13 +1,12 @@
 ﻿using Astro.Features.Quests;
 using System;
-using Astro.Features.Effects;
 using GreenPuffer.Accounts;
 using UnityEngine;
 
 namespace GreenPuffer.Quests
 {
     [Serializable]
-    class Quest : IQuest<QuestDescriptor>, IEffector<CoinBankAccount>
+    class Quest : IQuest<QuestDescriptor>
     {
         public QuestDescriptor Descriptor { get { return descriptor; } }
         public bool CanProvide
@@ -63,15 +62,10 @@ namespace GreenPuffer.Quests
             {
                 return false;
             }
-            owner.TakeEffect(this);
+            owner.Coin += descriptor.RewardCoin;
             PlayerPrefs.SetInt(owner.Id + descriptor.Key, 1);
             PlayerPrefs.Save();
             return true;
-        }
-
-        public void Affect(CoinBankAccount modifier)
-        {
-            modifier.Deposit(descriptor.RewardCoin);
         }
     }
 }

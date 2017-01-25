@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace GreenPuffer.UI
 {
-
+#pragma warning disable 0649
     class MyCharactersTableCell : TableCell
     {
         [SerializeField]

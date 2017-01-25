@@ -1,50 +1,56 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using DG.Tweening;
 using GreenPuffer.Accounts;
-using Astro.Features.Effects;
+using GreenPuffer.Characters;
+using System.Collections;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
 
+#pragma warning disable 0649
 namespace GreenPuffer.UI
 {
-    class RandomLotteryEgg : MonoBehaviour, IEffector<CoinBankAccount>
+    class RandomLotteryEgg : MonoBehaviour
     {
         [SerializeField]
         private Image effectImage;
         [SerializeField]
         private CharacterInfomationViewer infomation;
+        [SerializeField]
+        private Alert alert;
+
+        private Coroutine _coroutine;
 
         public void OnClicked()
         {
-            StartCoroutine(Buy());
+            if (_coroutine == null)
+            {
+                _coroutine = StartCoroutine(Buy());
+            }
         }
 
         public IEnumerator Buy()
         {
-            if (User.LocalUser.Coin < 100)
-                yield break;
-
-            float fadeDuration = 0.3f;
-            yield return effectImage.DOColor(Color.white, fadeDuration).SetEase(ease: Ease.OutExpo).WaitForCompletion();
-            yield return effectImage.DOColor(Color.black, fadeDuration).WaitForCompletion();
-            yield return effectImage.DOColor(Color.white, fadeDuration).WaitForCompletion();
-            yield return effectImage.DOColor(Color.black, fadeDuration).WaitForCompletion();
-            yield return effectImage.DOColor(Color.clear, fadeDuration).WaitForCompletion();
-
-            User.LocalUser.TakeEffect(this);
-        }
-
-        public void Affect(CoinBankAccount modifier)
-        {
-            if (modifier.Withdraw(100))
+            if (Users.LocalUser.Coin < 100)
             {
-                var characters = User.LocalUser.CharacterCollection.AllCharacters;
+                alert.Show("100코인이 필요합니다.");
+            }
+            else
+            {
+                float fadeDuration = 0.3f;
+                yield return effectImage.DOColor(Color.white, fadeDuration).SetEase(ease: Ease.OutExpo).WaitForCompletion();
+                yield return effectImage.DOColor(Color.black, fadeDuration).WaitForCompletion();
+                yield return effectImage.DOColor(Color.white, fadeDuration).WaitForCompletion();
+                yield return effectImage.DOColor(Color.black, fadeDuration).WaitForCompletion();
+                yield return effectImage.DOColor(Color.clear, fadeDuration).WaitForCompletion();
+
+                var characters = CharacterDatabase.GetAllPlayerCharacters();
                 var array = characters.ToArray();
-                var prefab = array[UnityEngine.Random.Range(0, array.Length)];
-                User.LocalUser.CharacterCollection.Unlock(prefab);
+                var prefab = array[Random.Range(0, array.Length)];
+                Users.LocalUser.CreateCharacter(prefab);
+                Users.LocalUser.Coin -= 100;
                 infomation.Apply(prefab);
+                _coroutine = null;
             }
         }
     }

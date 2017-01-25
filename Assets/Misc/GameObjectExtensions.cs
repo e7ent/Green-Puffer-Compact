@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace E7Assets
+namespace GreenPuffer.Misc
 {
 	public static class GameObjectExtensions
 	{

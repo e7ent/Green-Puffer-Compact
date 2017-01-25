@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GreenPuffer.Effectors
 {
-    class CoinEffector : MonoBehaviour, IEffector<CoinBankAccount>
+    class CoinEffector : MonoBehaviour
     {
         [SerializeField]
         private string triggingTag;
@@ -35,14 +35,10 @@ namespace GreenPuffer.Effectors
             if (character == null)
                 return;
 
-            User.LocalUser.TakeEffect(this);
-        }
+            Users.LocalUser.Coin += coin;
 
-        public void Affect(CoinBankAccount modifier)
-        {
             Instantiate(effectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            modifier.Deposit(coin);
         }
     }
 }
