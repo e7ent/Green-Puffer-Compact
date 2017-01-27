@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+#pragma warning disable 0649
 namespace GreenPuffer.UI
 {
     class Alert : MonoBehaviour

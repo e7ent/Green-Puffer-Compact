@@ -1,4 +1,6 @@
-﻿namespace GreenPuffer.Accounts
+﻿using UnityEngine.SocialPlatforms;
+
+namespace GreenPuffer.Accounts
 {
     class Users
     {
@@ -13,6 +15,11 @@
                 }
                 return localUser;
             }
+        }
+
+        public static void Login()
+        {
+
         }
     }
 }

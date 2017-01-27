@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+#pragma warning disable 0649
 namespace GreenPuffer.Misc
 {
     using URandom = UnityEngine.Random;

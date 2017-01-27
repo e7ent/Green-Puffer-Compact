@@ -14,7 +14,7 @@ namespace GreenPuffer.Misc
         public void ResetPlayerPrefs()
         {
             PlayerPrefs.DeleteAll();
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         public void AddCoin(int amount)
