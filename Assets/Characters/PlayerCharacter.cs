@@ -36,6 +36,19 @@ namespace GreenPuffer.Characters
             Fun = 19,
         }
 
+        /// 아래 데이터들은 모두 Model에 해당된다.
+        /// PlayerCharacter클래스는 View에 해당한다.
+        /// PlayerCharacterController는 Controller에 해당한다.
+        /// 하지만 PlayerCharacter는 Model과 의존성이 매우 높다.
+        /// 의존성을 낮추게 되면 PlayerCharacter라는 이름이 맞지 않는다.
+        /// CharacterView
+        /// CharacterModel
+        /// CharacterController 
+        /// Input은 View이다.
+        /// Transform, Rigidbody등의 Unity Component는 View이다. (Server에 존재하지 않는다는게 증거)
+        /// Stat, Ability등만으로는 nickname, icon, story...등의 데이터를 감당하지 못한다.
+        /// 보통의 프로그램과 달리 게임에 MVC를 적용하기 위해서는
+        /// N:1:1의 관계가 아닌 N:N:1의 구조가 되어야 하는것 같다.
         [Header("Infomation")]
         [SerializeField]
         private string nickName;
